@@ -25,7 +25,10 @@
                             "apps/zsszym/src/favicon.ico",
                             "apps/zsszym/src/assets"
                         ],
-                        "styles": ["apps/zsszym/src/styles.scss"],
+                        "styles": [
+                            "./node_modules/ng-zorro-antd/ng-zorro-antd.min.css",
+                            "apps/zsszym/src/styles.scss"
+                        ],
                         "scripts": []
                     },
                     "configurations": {
