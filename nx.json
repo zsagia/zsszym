@@ -26,6 +26,9 @@
         },
         "core-state": {
             "tags": []
+        },
+        "feature-dcp-api": {
+            "tags": []
         }
     }
 }
