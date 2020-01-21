@@ -38,6 +38,9 @@
         },
         "feature-dcp-view": {
             "tags": []
+        },
+        "feature-defect-api": {
+            "tags": []
         }
     }
 }

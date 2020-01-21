@@ -23,7 +23,10 @@
                 "libs/feature/dcp/state/src/index.ts"
             ],
             "@zsszym/feature/dcp/data": ["libs/feature/dcp/data/src/index.ts"],
-            "@zsszym/feature/dcp/view": ["libs/feature/dcp/view/src/index.ts"]
+            "@zsszym/feature/dcp/view": ["libs/feature/dcp/view/src/index.ts"],
+            "@zsszym/feature/defect/api": [
+                "libs/feature/defect/api/src/index.ts"
+            ]
         }
     },
     "exclude": ["node_modules", "tmp"]
