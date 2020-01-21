@@ -29,6 +29,9 @@
             ],
             "@zsszym/feature/defect/state": [
                 "libs/feature/defect/state/src/index.ts"
+            ],
+            "@zsszym/feature/defect/data": [
+                "libs/feature/defect/data/src/index.ts"
             ]
         }
     },
