@@ -28,7 +28,7 @@
                                 "glob": "**/*",
                                 "input": "./node_modules/@ant-design/icons-angular/src/inline-svg/",
                                 "output": "/assets/"
-                              }
+                            }
                         ],
                         "styles": [
                             "./node_modules/ng-zorro-antd/ng-zorro-antd.min.css",
@@ -212,6 +212,37 @@
                         "jestConfig": "libs/api-interfaces/jest.config.js",
                         "tsConfig": "libs/api-interfaces/tsconfig.spec.json"
                     }
+                }
+            }
+        },
+        "core-state": {
+            "projectType": "library",
+            "root": "libs/core/state",
+            "sourceRoot": "libs/core/state/src",
+            "prefix": "zsszym",
+            "architect": {
+                "lint": {
+                    "builder": "@angular-devkit/build-angular:tslint",
+                    "options": {
+                        "tsConfig": [
+                            "libs/core/state/tsconfig.lib.json",
+                            "libs/core/state/tsconfig.spec.json"
+                        ],
+                        "exclude": ["**/node_modules/**", "!libs/core/state/**"]
+                    }
+                },
+                "test": {
+                    "builder": "@nrwl/jest:jest",
+                    "options": {
+                        "jestConfig": "libs/core/state/jest.config.js",
+                        "tsConfig": "libs/core/state/tsconfig.spec.json",
+                        "setupFile": "libs/core/state/src/test-setup.ts"
+                    }
+                }
+            },
+            "schematics": {
+                "@nrwl/angular:component": {
+                    "styleext": "scss"
                 }
             }
         }
