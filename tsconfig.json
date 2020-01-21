@@ -18,7 +18,8 @@
         "paths": {
             "@zsszym/api-interfaces": ["libs/api-interfaces/src/index.ts"],
             "@zsszym/core/state": ["libs/core/state/src/index.ts"],
-            "@zsszym/feature/dcp/api": ["libs/feature/dcp/api/src/index.ts"]
+            "@zsszym/feature/dcp/api": ["libs/feature/dcp/api/src/index.ts"],
+            "@zsszym/feature/dcp/state": ["libs/feature/dcp/state/src/index.ts"]
         }
     },
     "exclude": ["node_modules", "tmp"]
