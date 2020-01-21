@@ -32,6 +32,9 @@
         },
         "feature-dcp-state": {
             "tags": []
+        },
+        "feature-dcp-data": {
+            "tags": []
         }
     }
 }

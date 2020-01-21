@@ -313,6 +313,40 @@
                     "styleext": "scss"
                 }
             }
+        },
+        "feature-dcp-data": {
+            "projectType": "library",
+            "root": "libs/feature/dcp/data",
+            "sourceRoot": "libs/feature/dcp/data/src",
+            "prefix": "zsszym",
+            "architect": {
+                "lint": {
+                    "builder": "@angular-devkit/build-angular:tslint",
+                    "options": {
+                        "tsConfig": [
+                            "libs/feature/dcp/data/tsconfig.lib.json",
+                            "libs/feature/dcp/data/tsconfig.spec.json"
+                        ],
+                        "exclude": [
+                            "**/node_modules/**",
+                            "!libs/feature/dcp/data/**"
+                        ]
+                    }
+                },
+                "test": {
+                    "builder": "@nrwl/jest:jest",
+                    "options": {
+                        "jestConfig": "libs/feature/dcp/data/jest.config.js",
+                        "tsConfig": "libs/feature/dcp/data/tsconfig.spec.json",
+                        "setupFile": "libs/feature/dcp/data/src/test-setup.ts"
+                    }
+                }
+            },
+            "schematics": {
+                "@nrwl/angular:component": {
+                    "styleext": "scss"
+                }
+            }
         }
     },
     "cli": {
