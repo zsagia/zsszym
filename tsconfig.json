@@ -32,6 +32,9 @@
             ],
             "@zsszym/feature/defect/data": [
                 "libs/feature/defect/data/src/index.ts"
+            ],
+            "@zsszym/feature/defect/view": [
+                "libs/feature/defect/view/src/index.ts"
             ]
         }
     },

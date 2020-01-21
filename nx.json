@@ -47,6 +47,9 @@
         },
         "feature-defect-data": {
             "tags": []
+        },
+        "feature-defect-view": {
+            "tags": []
         }
     }
 }

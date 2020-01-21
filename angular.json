@@ -483,6 +483,40 @@
                     "styleext": "scss"
                 }
             }
+        },
+        "feature-defect-view": {
+            "projectType": "library",
+            "root": "libs/feature/defect/view",
+            "sourceRoot": "libs/feature/defect/view/src",
+            "prefix": "zsszym",
+            "architect": {
+                "lint": {
+                    "builder": "@angular-devkit/build-angular:tslint",
+                    "options": {
+                        "tsConfig": [
+                            "libs/feature/defect/view/tsconfig.lib.json",
+                            "libs/feature/defect/view/tsconfig.spec.json"
+                        ],
+                        "exclude": [
+                            "**/node_modules/**",
+                            "!libs/feature/defect/view/**"
+                        ]
+                    }
+                },
+                "test": {
+                    "builder": "@nrwl/jest:jest",
+                    "options": {
+                        "jestConfig": "libs/feature/defect/view/jest.config.js",
+                        "tsConfig": "libs/feature/defect/view/tsconfig.spec.json",
+                        "setupFile": "libs/feature/defect/view/src/test-setup.ts"
+                    }
+                }
+            },
+            "schematics": {
+                "@nrwl/angular:component": {
+                    "styleext": "scss"
+                }
+            }
         }
     },
     "cli": {
