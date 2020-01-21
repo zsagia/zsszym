@@ -41,6 +41,9 @@
         },
         "feature-defect-api": {
             "tags": []
+        },
+        "feature-defect-state": {
+            "tags": []
         }
     }
 }

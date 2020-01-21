@@ -26,6 +26,9 @@
             "@zsszym/feature/dcp/view": ["libs/feature/dcp/view/src/index.ts"],
             "@zsszym/feature/defect/api": [
                 "libs/feature/defect/api/src/index.ts"
+            ],
+            "@zsszym/feature/defect/state": [
+                "libs/feature/defect/state/src/index.ts"
             ]
         }
     },
