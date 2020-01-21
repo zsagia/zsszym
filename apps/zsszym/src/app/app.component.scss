@@ -1,17 +1,51 @@
+.app {
+    font-size: 1.4rem;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.app-menu {
+    font-size: 20px;
+    font-weight: normal;
+    line-height: 2rem;
+}
+
 .main {
     height: 100%;
 }
 
-.logo {
-    width: 120px;
-    height: 16px;
-    background: rgba(255, 255, 255, 0.2);
-    margin: 16px 24px 16px 0;
-    float: left;
+.icon {
+    height: auto;
+    line-height: 64px;
+    text-align: center;
+}
+
+.form-type {
+    margin: 10px;
+    text-align: center;
+
+    label {
+        padding: 0 50px;
+    }
+
+    .ant-radio-group-solid .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled) {
+        color: #fff;
+        background: #19647E;
+        border-color: #19647E;
+    }
+}
+
+.title {
+    font-size: 20px;
+    font-weight: normal;
+    line-height: 28px;
+    height: 36px;
+    color: #fff;
+    background: #19647E;
+    padding: 5px;
   }
 
 nz-header {
-    background: #fff;
+    background: #001529;
     padding: 0;
     width: 100%;
 }
@@ -30,16 +64,14 @@ nz-footer {
     text-align: center;
 }
 
-:host ::ng-deep nz-sider {
-    &.right-side-sider {
-        .ant-layout-sider-zero-width-trigger {
-            border-radius: 4px 0 0 4px;
-            left: -36px;
-            right: unset;
-        }
-    }
-}
+.trigger {
+    font-size: 20px;
+    line-height: 64px;
+    padding: 0 24px;
+    cursor: pointer;
+    color: #fff;
+  }
 
-.ant-layout-header {
-    height: auto;
+.trigger:hover {
+    color: #1890ff;
 }

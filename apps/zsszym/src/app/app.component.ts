@@ -8,7 +8,9 @@ import { Message } from '@zsszym/api-interfaces';
     styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-    public isCollapsed = false;
+    public formType = 'dcp';
+    public isCollapsed1 = false;
+    public isCollapsed2 = true;
     public hello$ = this.http.get<Message>('/api/hello');
 
     constructor(private http: HttpClient) {}
