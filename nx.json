@@ -35,6 +35,9 @@
         },
         "feature-dcp-data": {
             "tags": []
+        },
+        "feature-dcp-view": {
+            "tags": []
         }
     }
 }
