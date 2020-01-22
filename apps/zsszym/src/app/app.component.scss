@@ -27,10 +27,11 @@
         padding: 0 50px;
     }
 
-    .ant-radio-group-solid .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled) {
+    .ant-radio-group-solid
+        .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled) {
         color: #fff;
-        background: #19647E;
-        border-color: #19647E;
+        background: #19647e;
+        border-color: #19647e;
     }
 }
 
@@ -40,9 +41,9 @@
     line-height: 28px;
     height: 36px;
     color: #fff;
-    background: #19647E;
+    background: #19647e;
     padding: 5px;
-  }
+}
 
 nz-header {
     background: #001529;
@@ -70,7 +71,7 @@ nz-footer {
     padding: 0 24px;
     cursor: pointer;
     color: #fff;
-  }
+}
 
 .trigger:hover {
     color: #1890ff;

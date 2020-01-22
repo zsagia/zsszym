@@ -44,7 +44,10 @@
             </div>
 
             <div class="form-type">
-                <nz-radio-group [(ngModel)]="formType" [nzButtonStyle]="'solid'">
+                <nz-radio-group
+                    [(ngModel)]="formType"
+                    [nzButtonStyle]="'solid'"
+                >
                     <label nz-radio-button nzValue="dcp">DCP</label>
                     <label nz-radio-button nzValue="defects">Defects</label>
                 </nz-radio-group>
@@ -64,9 +67,9 @@
             [nzTrigger]="null"
             nzWidth="370px"
         >
-        <div class="title">
-            Filter
-        </div>
+            <div class="title">
+                Filter
+            </div>
         </nz-sider>
     </nz-layout>
 
