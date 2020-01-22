@@ -6,73 +6,19 @@
 .app-menu {
     font-size: 20px;
     font-weight: normal;
-    line-height: 2rem;
 }
 
 .main {
     height: 100%;
 }
 
-.icon {
-    height: auto;
-    line-height: 64px;
-    text-align: center;
-}
-
-.form-type {
-    margin: 10px;
-    text-align: center;
-
-    label {
-        padding: 0 50px;
-    }
-
-    .ant-radio-group-solid
-        .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled) {
-        color: #fff;
-        background: #19647e;
-        border-color: #19647e;
-    }
-}
-
-.title {
-    font-size: 20px;
-    font-weight: normal;
-    line-height: 28px;
-    height: 36px;
-    color: #fff;
-    background: #19647e;
-    padding: 5px;
-}
-
 nz-header {
-    background: #001529;
+    background: #fff;
+    height: 48px;
     padding: 0;
     width: 100%;
 }
 
-nz-content {
-    margin: 24px 16px 0;
-}
-
-.inner-content {
-    padding: 24px;
-    background: #fff;
-    min-height: 360px;
-}
-
 nz-footer {
     text-align: center;
-}
-
-.trigger {
-    font-size: 20px;
-    line-height: 64px;
-    padding: 0 24px;
-    cursor: pointer;
-    color: #fff;
-}
-
-.trigger:hover {
-    color: #1890ff;
 }

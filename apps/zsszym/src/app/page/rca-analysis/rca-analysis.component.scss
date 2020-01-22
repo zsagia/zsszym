@@ -1,0 +1,54 @@
+.icon {
+    height: auto;
+    line-height: 48px;
+    text-align: center;
+}
+
+.form-type {
+    margin: 10px;
+    text-align: center;
+
+    label {
+        padding: 0 50px;
+    }
+
+    .ant-radio-group-solid
+        .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled) {
+        color: #fff;
+        background: #19647e;
+        border-color: #19647e;
+    }
+}
+
+.inner-content {
+    padding: 24px;
+    background: #fff;
+    min-height: 360px;
+}
+
+header {
+    background-color: #680E4B;
+    height: 48px;
+}
+
+.title {
+    font-size: 20px;
+    font-weight: normal;
+    line-height: 28px;
+    height: 36px;
+    color: #fff;
+    background: #19647e;
+    padding: 5px;
+}
+
+.trigger {
+    font-size: 20px;
+    line-height: 48px;
+    padding: 0 24px;
+    cursor: pointer;
+    color: #fff;
+}
+
+.trigger:hover {
+    color: #1890ff;
+}

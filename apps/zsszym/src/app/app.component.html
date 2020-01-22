@@ -1,77 +1,13 @@
 <nz-layout class="app">
     <nz-header>
-        <div nz-row nzType="flex" nzAlign="middle">
-            <div nz-col nzSpan="1" class="icon">
-                <i
-                    class="trigger"
-                    nz-icon
-                    [nzType]="isCollapsed1 ? 'right' : 'left'"
-                    nzTheme="outline"
-                    (click)="isCollapsed1 = !isCollapsed1"
-                ></i>
-            </div>
-
-            <div nz-col nzSpan="22">
-                <ul class="app-menu" nz-menu nzTheme="dark" nzMode="horizontal">
-                    <li nz-menu-item>RCA Analysis with Linear Models</li>
-                    <li nz-menu-item>Extraction Tool</li>
-                    <li nz-menu-item>How to</li>
-                </ul>
-            </div>
-
-            <div nz-col nzSpan="1" class="icon">
-                <i
-                    class="trigger"
-                    nz-icon
-                    [nzType]="isCollapsed2 ? 'left' : 'right'"
-                    nzTheme="outline"
-                    (click)="isCollapsed2 = !isCollapsed2"
-                ></i>
-            </div>
-        </div>
+        <ul class="app-menu" nz-menu nzMode="horizontal">
+            <li nz-menu-item>RCA Analysis with Linear Models</li>
+            <li nz-menu-item>Extraction Tool</li>
+            <li nz-menu-item>How to</li>
+        </ul>
     </nz-header>
 
-    <nz-layout>
-        <nz-sider
-            nzCollapsible
-            [(nzCollapsed)]="isCollapsed1"
-            [nzCollapsedWidth]="0"
-            [nzTrigger]="null"
-            nzWidth="370px"
-        >
-            <div class="title">
-                Dependent Variable (DV) Selection
-            </div>
-
-            <div class="form-type">
-                <nz-radio-group
-                    [(ngModel)]="formType"
-                    [nzButtonStyle]="'solid'"
-                >
-                    <label nz-radio-button nzValue="dcp">DCP</label>
-                    <label nz-radio-button nzValue="defects">Defects</label>
-                </nz-radio-group>
-            </div>
-        </nz-sider>
-
-        <nz-content class="main">
-            <div class="inner-content">
-                Nest Message: {{ hello$ | async | json }}
-            </div>
-        </nz-content>
-
-        <nz-sider
-            nzCollapsible
-            [(nzCollapsed)]="isCollapsed2"
-            [nzCollapsedWidth]="0"
-            [nzTrigger]="null"
-            nzWidth="370px"
-        >
-            <div class="title">
-                Filter
-            </div>
-        </nz-sider>
-    </nz-layout>
+    <router-outlet></router-outlet>
 
     <nz-footer>App Szymon</nz-footer>
 </nz-layout>

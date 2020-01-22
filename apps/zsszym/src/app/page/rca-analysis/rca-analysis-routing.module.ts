@@ -1,7 +1,15 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 
-const routes: Routes = [];
+import { RcaAnalysisComponent } from './rca-analysis.component';
+
+const routes: Routes = [
+  {
+    path: '',
+    component: RcaAnalysisComponent,
+    pathMatch: 'full'
+  }
+];
 
 @NgModule({
     imports: [RouterModule.forChild(routes)],
