@@ -1,1 +1,188 @@
-<p>dcp-form works!</p>
+<form nz-form [nzLayout]="'vertical'" [formGroup]="dcpForm">
+    <nz-form-item>
+        <nz-form-label nzRequired>Plant key</nz-form-label>
+
+        <nz-form-control nzErrorTip="Please input your value!">
+            <nz-select
+                nzShowSearch
+                nzAllowClear
+                nzPlaceHolder="Last used plant key"
+                formControlName="plantKey"
+            >
+                <nz-option nzLabel="Jack" nzValue="jack"></nz-option>
+                <nz-option nzLabel="Lucy" nzValue="lucy"></nz-option>
+                <nz-option nzLabel="Tom" nzValue="tom"></nz-option>
+            </nz-select>
+        </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+        <nz-form-label nzRequired>Route</nz-form-label>
+
+        <nz-form-control nzErrorTip="Please input your value!">
+            <nz-select
+                nzShowSearch
+                nzAllowClear
+                nzPlaceHolder="Last used route"
+                formControlName="route"
+            >
+                <nz-option nzLabel="Jack" nzValue="jack"></nz-option>
+                <nz-option nzLabel="Lucy" nzValue="lucy"></nz-option>
+                <nz-option nzLabel="Tom" nzValue="tom"></nz-option>
+            </nz-select>
+        </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+        <nz-form-label nzRequired>Part number</nz-form-label>
+
+        <nz-form-control nzErrorTip="Please input your value!">
+            <nz-select
+                nzShowSearch
+                nzAllowClear
+                nzPlaceHolder="Last used part number"
+                formControlName="partNumber"
+            >
+                <nz-option nzLabel="Jack" nzValue="jack"></nz-option>
+                <nz-option nzLabel="Lucy" nzValue="lucy"></nz-option>
+                <nz-option nzLabel="Tom" nzValue="tom"></nz-option>
+            </nz-select>
+        </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+        <nz-form-label nzRequired>Operation</nz-form-label>
+
+        <nz-form-control nzErrorTip="Please input your operation value!">
+            <nz-select
+                nzShowSearch
+                nzAllowClear
+                nzPlaceHolder="Last used operation"
+                formControlName="operation"
+            >
+                <nz-option nzLabel="Jack" nzValue="jack"></nz-option>
+                <nz-option nzLabel="Lucy" nzValue="lucy"></nz-option>
+                <nz-option nzLabel="Tom" nzValue="tom"></nz-option>
+            </nz-select>
+        </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+        <nz-form-label nzRequired>Line number nad input prompt</nz-form-label>
+
+        <nz-form-control nzErrorTip="Please input your value!">
+            <nz-select
+                nzShowSearch
+                nzAllowClear
+                nzPlaceHolder="Last used line number"
+                formControlName="lineNumber"
+            >
+                <nz-option nzLabel="Jack" nzValue="jack"></nz-option>
+                <nz-option nzLabel="Lucy" nzValue="lucy"></nz-option>
+                <nz-option nzLabel="Tom" nzValue="tom"></nz-option>
+            </nz-select>
+        </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+        <nz-form-label nzRequired>Dependent variable from date</nz-form-label>
+
+        <nz-form-control nzErrorTip="Please input your value!">
+            <nz-date-picker
+                nzPlaceHolder="Select a date"
+                formControlName="fromDate"
+            ></nz-date-picker>
+        </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+        <nz-form-label nzRequired>Dependent variable to date</nz-form-label>
+
+        <nz-form-control nzErrorTip="Please input your value!">
+            <nz-date-picker
+                nzPlaceHolder="Select a date"
+                formControlName="toDate"
+            ></nz-date-picker>
+        </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+        <nz-form-label>Dept of analysis</nz-form-label>
+
+        <nz-form-control nzErrorTip="Please input dept value!">
+            <nz-input-number
+                formControlName="deptOfAnalysis"
+                [nzMin]="0"
+                [nzMax]="10"
+                [nzStep]="1"
+            ></nz-input-number>
+        </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+        <nz-form-label>Filter outliers</nz-form-label>
+
+        <nz-form-control nzErrorTip="Please input your value!">
+            <nz-switch formControlName="filterOutliers"></nz-switch>
+        </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+        <nz-form-label>Minimum Y</nz-form-label>
+
+        <nz-form-control nzErrorTip="Please input minimum Y value!">
+            <nz-input-number
+                formControlName="minimumY"
+                [nzMin]="0"
+                [nzMax]="1"
+                [nzStep]="0.1"
+                [nzPlaceHolder]="'Min Y'"
+            ></nz-input-number>
+        </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+        <nz-form-label>Maximum Y</nz-form-label>
+
+        <nz-form-control nzErrorTip="Please input maximum Y value!">
+            <nz-input-number
+                formControlName="maximumY"
+                [nzMin]="0"
+                [nzMax]="1"
+                [nzStep]="0.1"
+                [nzPlaceHolder]="'Max Y'"
+            ></nz-input-number>
+        </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+        <nz-form-control>
+            <button nz-button nzType="primary" nzBlock>
+                <i nz-icon [nzType]="'area-chart'" [nzTheme]="'outline'"></i
+                >Visualize this DV
+            </button>
+        </nz-form-control>
+    </nz-form-item>
+
+    <nz-divider nzText="OR"></nz-divider>
+
+    <nz-form-item>
+        <nz-form-control>
+            <button nz-button nzType="primary" nzBlock>
+                <i nz-icon [nzType]="'caret-right'" [nzTheme]="'outline'"></i
+                >Run analysis for all
+            </button>
+        </nz-form-control>
+    </nz-form-item>
+
+    <nz-divider nzText="OR"></nz-divider>
+
+    <nz-form-item>
+        <nz-form-control>
+            <button nz-button nzType="primary" nzBlock>
+                <i nz-icon [nzType]="'download'" [nzTheme]="'outline'"></i
+                >Download data
+            </button>
+        </nz-form-control>
+    </nz-form-item>
+</form>

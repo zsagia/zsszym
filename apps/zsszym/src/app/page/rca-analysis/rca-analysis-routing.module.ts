@@ -4,11 +4,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { RcaAnalysisComponent } from './rca-analysis.component';
 
 const routes: Routes = [
-  {
-    path: '',
-    component: RcaAnalysisComponent,
-    pathMatch: 'full'
-  }
+    {
+        path: '',
+        component: RcaAnalysisComponent,
+        pathMatch: 'full'
+    }
 ];
 
 @NgModule({

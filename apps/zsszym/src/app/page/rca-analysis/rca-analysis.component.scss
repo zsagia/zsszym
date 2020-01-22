@@ -4,6 +4,37 @@
     text-align: center;
 }
 
+.dcp-slider {
+    color: #707070;
+    background-color: #e8e8e8;
+}
+
+.dcp-slider-content {
+    padding: 10px;
+
+    input {
+        width: 100%;
+    }
+}
+
+:host ::ng-deep nz-form-label {
+    &.ant-form-item-label > label {
+        color: #707070;
+        font-weight: 600;
+    }
+}
+
+:host ::ng-deep nz-divider {
+    &.ant-divider-horizontal.ant-divider-with-text-center {
+        color: #707070;
+    }
+
+    &.ant-divider-horizontal.ant-divider-with-text-center::after,
+    &.ant-divider-horizontal.ant-divider-with-text-center::before {
+        border-top: 1px solid #707070;
+    }
+}
+
 .form-type {
     margin: 10px;
     text-align: center;
@@ -22,12 +53,12 @@
 
 .inner-content {
     padding: 24px;
-    background: #fff;
+    background: #707070;
     min-height: 360px;
 }
 
 header {
-    background-color: #680E4B;
+    background-color: #680e4b;
     height: 48px;
 }
 

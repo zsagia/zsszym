@@ -31,18 +31,28 @@
             [nzTrigger]="null"
             nzWidth="370px"
         >
-            <div class="title">
-                Dependent Variable (DV) Selection
-            </div>
+            <div class="dcp-slider">
+                <div class="dcp-slider-header">
+                    <div class="title">
+                        Dependent Variable (DV) Selection
+                    </div>
 
-            <div class="form-type">
-                <nz-radio-group
-                    [(ngModel)]="formType"
-                    [nzButtonStyle]="'solid'"
-                >
-                    <label nz-radio-button nzValue="dcp">DCP</label>
-                    <label nz-radio-button nzValue="defects">Defects</label>
-                </nz-radio-group>
+                    <div class="form-type">
+                        <nz-radio-group
+                            [(ngModel)]="formType"
+                            [nzButtonStyle]="'solid'"
+                        >
+                            <label nz-radio-button nzValue="dcp">DCP</label>
+                            <label nz-radio-button nzValue="defects"
+                                >Defects</label
+                            >
+                        </nz-radio-group>
+                    </div>
+                </div>
+
+                <div class="dcp-slider-content">
+                    <zsszym-dcp-form></zsszym-dcp-form>
+                </div>
             </div>
         </nz-sider>
 
