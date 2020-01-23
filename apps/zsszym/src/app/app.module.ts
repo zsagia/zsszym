@@ -14,6 +14,10 @@ import en from '@angular/common/locales/en';
 import { CoreModule } from './core/core.module';
 import { AppRoutingModule } from './app-routing.module';
 
+import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+
+const config: SocketIoConfig = { url: 'http://localhost:3333', options: {} };
+
 registerLocaleData(en);
 
 @NgModule({
@@ -25,6 +29,7 @@ registerLocaleData(en);
         HttpClientModule,
         NzLayoutModule,
         NzMenuModule,
+        SocketIoModule.forRoot(config),
         BrowserAnimationsModule
     ],
     providers: [{ provide: NZ_I18N, useValue: en_US }],
