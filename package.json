@@ -48,6 +48,7 @@
         "@nrwl/angular": "8.11.2",
         "core-js": "^2.5.4",
         "ng-zorro-antd": "^8.5.2",
+        "ngx-socket-io": "^3.0.1",
         "reflect-metadata": "^0.1.13",
         "rxjs": "~6.4.0",
         "zone.js": "^0.9.1"
