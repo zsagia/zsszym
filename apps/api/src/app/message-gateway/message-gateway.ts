@@ -59,6 +59,83 @@ export class MessageGateway
         HLP_SubAssy_Route: ['HLP_RI', 'HLP_Sub_Assy']
     };
 
+    private root = {
+        data: ['UAP', 'CAW', 'HLP'],
+        route: {
+            UAP: {
+                data: [
+                    'UAP_HLA Assembly',
+                    'UAP_Probe Assembly External_V2.0',
+                    'UAP_Probe Assembly Internal_V2.0'
+                ],
+                operation: {
+                    'UAP_HLA Assembly': {
+                        data: [
+                            'UAP_HLA_Assembly',
+                            'UAP_HLA_Labeling Check',
+                            'UAP_HLA_Rework'
+                        ]
+                    },
+                    'UAP_Probe Assembly External_V2.0': {
+                        data: [
+                            'UAP_Assembly',
+                            'UAP_Final Test',
+                            'UAP_Labelling Check'
+                        ]
+                    },
+                    'UAP_Probe Assembly Internal_V2.0': {
+                        data: [
+                            'UAP_Assembly',
+                            'UAP_Final Test',
+                            'UAP_Labelling Check'
+                        ]
+                    }
+                }
+            },
+            CAW: {
+                data: [
+                    'CAW_CAB_Integration',
+                    'CAW_MAG_Product',
+                    'CAW_TAB_Integration'
+                ],
+                operation: {
+                    CAW_CAB_Integration: {
+                        data: [
+                            'CAW_CAB_Assembly',
+                            'CAW_CAB_Covers & Labeling',
+                            'CAW_CAB_FAR'
+                        ]
+                    },
+                    CAW_MAG_Product: {
+                        data: [
+                            'CAW_MAG_FAR',
+                            'CAW_MAG_FQC',
+                            'CAW_MAG_He_Top-off_and_Labelling'
+                        ]
+                    },
+                    CAW_TAB_Integration: {
+                        data: ['CAW_TAB_Assembly', 'CAW_TAB_FAR', 'CAW_TAB_FQC']
+                    }
+                }
+            },
+            HLP: {
+                data: ['HLP_Nova_route', 'HLP_SubAssy_Route'],
+                operation: {
+                    HLP_Nova_route: {
+                        data: [
+                            'HLP_Nova_Main_1',
+                            'HLP_Nova_Main_2',
+                            'HLP_Nova_Main_3'
+                        ]
+                    },
+                    HLP_SubAssy_Route: {
+                        data: ['HLP_RI', 'HLP_Sub_Assy']
+                    }
+                }
+            }
+        }
+    };
+
     async handleConnection() {
         // Notify connected clients of current users
         this.server.emit('data', 'connected');
@@ -93,5 +170,24 @@ export class MessageGateway
         const data = this.operationMap[message];
 
         return of({ event, data }).pipe(delay(500));
+    }
+
+    @SubscribeMessage('dcp')
+    onDCP(client, message) {
+        console.log(message);
+        const event = 'dcp';
+        const data = !message['plantKey']
+            ? this.root.data
+            : this.getPlantKeys(message, message['plantKey'], this.root.route);
+
+        return of({ event, data }).pipe(delay(500));
+    }
+
+    getPlantKeys(message, key: string, data: any) {
+        return !message['route'] ? data[key].data : this.getRoute(message, message['route'], data.operation.data);
+    }
+
+    getRoute(message, key: string, data: any) {
+
     }
 }

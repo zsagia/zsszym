@@ -19,6 +19,6 @@ export class DcpDataServiceImpl extends DcpDataService {
     }
 
     public load(dcp: DCP): Observable<string[]> {
-        return new Observable<string[]>(observer => {});
+        return this.socket.emit('dcp', dcp)
     }
 }

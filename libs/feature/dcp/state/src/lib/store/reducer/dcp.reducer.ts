@@ -17,12 +17,17 @@ export const initialState: DCPState = adapter.getInitialState({
 
 export const dcpReducer = createReducer(
     initialState,
-    on(dcpActions.loadDCPSuccess, (state, { id, data }) => ({
-        ...state,
-        loading: false,
-        error: null,
-        dataMap: state.dataMap[id] = data
-    }))
+    on(dcpActions.loadDCPSuccess, (state, { id, data }) => {
+        if (id) {
+            state.dataMap[id] = data;
+        }
+
+        return {
+            ...state,
+            loading: false,
+            error: null
+        };
+    })
 );
 
 export const {

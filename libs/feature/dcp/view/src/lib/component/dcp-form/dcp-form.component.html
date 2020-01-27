@@ -7,7 +7,7 @@
                 nzPlaceHolder="Last used plant key"
                 formControlName="plantKey"
                 [compareWith]="compareFn"
-                [ngModel]="dcp.plantKey"
+                [(ngModel)]="dcp.plantKey"
                 (ngModelChange)="plantKeyChangeHandler($event)"
             >
                 <nz-option

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-import { DcpDataService, DCP } from '@zsszym/feature/dcp/api';
+import { DcpDataService, DCP, DCPStateService } from '@zsszym/feature/dcp/api';
 import { Observable } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 
@@ -19,7 +19,8 @@ export class DcpFormComponent implements OnInit {
 
     public constructor(
         private formBuilder: FormBuilder,
-        private dcpDataService: DcpDataService
+        private dcpDataService: DcpDataService,
+        private dcpStateService: DCPStateService
     ) {}
 
     public plantKeyChangeHandler(plantKey: string): void {
@@ -28,6 +29,10 @@ export class DcpFormComponent implements OnInit {
                 DcpDataService.PROPERTY_NAMES.ROUTE,
                 plantKey
             );
+
+            this.dcp.id = plantKey;
+
+            this.dcpStateService.load(this.dcp);
         }
     }
 
@@ -37,6 +42,9 @@ export class DcpFormComponent implements OnInit {
                 DcpDataService.PROPERTY_NAMES.OPERATION,
                 route
             );
+
+            this.dcp.id = this.dcp.id + '&&&' + route;
+            this.dcpStateService.load(this.dcp);
         }
     }
 
@@ -86,6 +94,8 @@ export class DcpFormComponent implements OnInit {
             DcpDataService.PROPERTY_NAMES.PLANT_KEY,
             ''
         );
+
+        this.dcpStateService.load(this.dcp);
     }
 
     public compareFn = (o1: string, o2: string) => {
