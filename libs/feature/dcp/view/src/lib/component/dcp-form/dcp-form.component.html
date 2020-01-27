@@ -4,14 +4,17 @@
 
         <nz-form-control nzErrorTip="Please input your value!">
             <nz-select
-                nzShowSearch
-                nzAllowClear
                 nzPlaceHolder="Last used plant key"
                 formControlName="plantKey"
+                [compareWith]="compareFn"
+                [ngModel]="dcp.plantKey"
+                (ngModelChange)="plantKeyChangeHandler($event)"
             >
-                <nz-option nzLabel="Jack" nzValue="jack"></nz-option>
-                <nz-option nzLabel="Lucy" nzValue="lucy"></nz-option>
-                <nz-option nzLabel="Tom" nzValue="tom"></nz-option>
+                <nz-option
+                    *ngFor="let item of plantKeys$ | async"
+                    [nzLabel]="item"
+                    [nzValue]="item"
+                ></nz-option>
             </nz-select>
         </nz-form-control>
     </nz-form-item>
@@ -25,27 +28,15 @@
                 nzAllowClear
                 nzPlaceHolder="Last used route"
                 formControlName="route"
+                [compareWith]="compareFn"
+                [ngModel]="dcp.route"
+                (ngModelChange)="routeChangeHandler($event)"
             >
-                <nz-option nzLabel="Jack" nzValue="jack"></nz-option>
-                <nz-option nzLabel="Lucy" nzValue="lucy"></nz-option>
-                <nz-option nzLabel="Tom" nzValue="tom"></nz-option>
-            </nz-select>
-        </nz-form-control>
-    </nz-form-item>
-
-    <nz-form-item>
-        <nz-form-label nzRequired>Part number</nz-form-label>
-
-        <nz-form-control nzErrorTip="Please input your value!">
-            <nz-select
-                nzShowSearch
-                nzAllowClear
-                nzPlaceHolder="Last used part number"
-                formControlName="partNumber"
-            >
-                <nz-option nzLabel="Jack" nzValue="jack"></nz-option>
-                <nz-option nzLabel="Lucy" nzValue="lucy"></nz-option>
-                <nz-option nzLabel="Tom" nzValue="tom"></nz-option>
+                <nz-option
+                    *ngFor="let item of route$ | async"
+                    [nzLabel]="item"
+                    [nzValue]="item"
+                ></nz-option>
             </nz-select>
         </nz-form-control>
     </nz-form-item>
@@ -59,10 +50,37 @@
                 nzAllowClear
                 nzPlaceHolder="Last used operation"
                 formControlName="operation"
+                [compareWith]="compareFn"
+                [ngModel]="dcp.operation"
+                (ngModelChange)="operationChangeHandler($event)"
             >
-                <nz-option nzLabel="Jack" nzValue="jack"></nz-option>
-                <nz-option nzLabel="Lucy" nzValue="lucy"></nz-option>
-                <nz-option nzLabel="Tom" nzValue="tom"></nz-option>
+                <nz-option
+                    *ngFor="let item of operation$ | async"
+                    [nzLabel]="item"
+                    [nzValue]="item"
+                ></nz-option>
+            </nz-select>
+        </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+        <nz-form-label nzRequired>Part number</nz-form-label>
+
+        <nz-form-control nzErrorTip="Please input your value!">
+            <nz-select
+                nzShowSearch
+                nzAllowClear
+                nzPlaceHolder="Last used part number"
+                formControlName="partNumber"
+                [compareWith]="compareFn"
+                [ngModel]="dcp.partNumber"
+                (ngModelChange)="operationChangeHandler($event)"
+            >
+                <nz-option
+                    *ngFor="let item of route$ | async"
+                    [nzLabel]="item"
+                    [nzValue]="item"
+                ></nz-option>
             </nz-select>
         </nz-form-control>
     </nz-form-item>

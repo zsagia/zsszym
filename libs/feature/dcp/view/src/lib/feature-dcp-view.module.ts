@@ -13,6 +13,8 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { FeatureDcpDataModule } from '@zsszym/feature/dcp/data';
+
 import { DcpFormComponent } from './component/dcp-form/dcp-form.component';
 
 @NgModule({
@@ -20,6 +22,7 @@ import { DcpFormComponent } from './component/dcp-form/dcp-form.component';
     exports: [DcpFormComponent],
     imports: [
         CommonModule,
+        FeatureDcpDataModule,
         FormsModule,
         NzButtonModule,
         NzDatePickerModule,

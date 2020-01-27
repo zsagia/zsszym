@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 
-@Injectable()
-export abstract class DcStateService {
+import { DCP } from '../model';
 
-    public abstract dispatchRequestData(event: string, message: string): void;
+@Injectable()
+export abstract class DCPStateService {
+    public abstract load(dcp: DCP): void;
 }
