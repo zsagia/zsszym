@@ -8,7 +8,9 @@ export abstract class DcpDataService {
     public static readonly PROPERTY_NAMES = {
         PLANT_KEY: 'plantKey',
         ROUTE: 'route',
-        OPERATION: 'operation'
+        OPERATION: 'operation',
+        LINE_NUMBER_AND_INPUT_PROMPT: 'lineNumberAndInputPrompt',
+        PART_NUMBER: 'partNumber'
     };
 
     public abstract load(dcp: DCP): Observable<string[]>;

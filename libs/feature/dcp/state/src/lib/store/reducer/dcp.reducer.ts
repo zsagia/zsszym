@@ -12,16 +12,18 @@ export const adapter: EntityAdapter<DCP> = createEntityAdapter<DCP>({
 export const initialState: DCPState = adapter.getInitialState({
     loading: false,
     error: null,
-    dataMap: {}
+    plantKeys: [],
+    routes: [],
+    operations: [],
+    lineNumberAndInputPrompts: [],
+    partNumbers: []
 });
 
 export const dcpReducer = createReducer(
     initialState,
-    on(dcpActions.loadDCPSuccess, (state, { id, data }) => {
-        if (id) {
-            state.dataMap[id] = data;
-        }
-
+    on(dcpActions.loadDCPSuccess, (state, { key, data }) => {
+        state[key] = data;
+        
         return {
             ...state,
             loading: false,

@@ -7,7 +7,6 @@
                 nzPlaceHolder="Last used plant key"
                 formControlName="plantKey"
                 [compareWith]="compareFn"
-                [(ngModel)]="dcp.plantKey"
                 (ngModelChange)="plantKeyChangeHandler($event)"
             >
                 <nz-option
@@ -24,16 +23,13 @@
 
         <nz-form-control nzErrorTip="Please input your value!">
             <nz-select
-                nzShowSearch
-                nzAllowClear
                 nzPlaceHolder="Last used route"
                 formControlName="route"
                 [compareWith]="compareFn"
-                [ngModel]="dcp.route"
                 (ngModelChange)="routeChangeHandler($event)"
             >
                 <nz-option
-                    *ngFor="let item of route$ | async"
+                    *ngFor="let item of routes$ | async"
                     [nzLabel]="item"
                     [nzValue]="item"
                 ></nz-option>
@@ -46,16 +42,32 @@
 
         <nz-form-control nzErrorTip="Please input your operation value!">
             <nz-select
-                nzShowSearch
-                nzAllowClear
                 nzPlaceHolder="Last used operation"
                 formControlName="operation"
                 [compareWith]="compareFn"
-                [ngModel]="dcp.operation"
                 (ngModelChange)="operationChangeHandler($event)"
             >
                 <nz-option
-                    *ngFor="let item of operation$ | async"
+                    *ngFor="let item of operations$ | async"
+                    [nzLabel]="item"
+                    [nzValue]="item"
+                ></nz-option>
+            </nz-select>
+        </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+        <nz-form-label nzRequired>Line number and input prompt</nz-form-label>
+
+        <nz-form-control nzErrorTip="Please input your value!">
+            <nz-select
+                nzPlaceHolder="Last used line number"
+                formControlName="lineNumberAndInputPrompt"
+                [compareWith]="compareFn"
+                (ngModelChange)="lineNumberAndInputPromptChangeHandler($event)"
+            >
+                <nz-option
+                    *ngFor="let item of lineNumberAndInputPrompts$ | async"
                     [nzLabel]="item"
                     [nzValue]="item"
                 ></nz-option>
@@ -68,36 +80,16 @@
 
         <nz-form-control nzErrorTip="Please input your value!">
             <nz-select
-                nzShowSearch
-                nzAllowClear
                 nzPlaceHolder="Last used part number"
                 formControlName="partNumber"
                 [compareWith]="compareFn"
-                [ngModel]="dcp.partNumber"
-                (ngModelChange)="operationChangeHandler($event)"
+                (ngModelChange)="partNumberChangeHandler($event)"
             >
                 <nz-option
-                    *ngFor="let item of route$ | async"
+                    *ngFor="let item of partNumbers$ | async"
                     [nzLabel]="item"
                     [nzValue]="item"
                 ></nz-option>
-            </nz-select>
-        </nz-form-control>
-    </nz-form-item>
-
-    <nz-form-item>
-        <nz-form-label nzRequired>Line number nad input prompt</nz-form-label>
-
-        <nz-form-control nzErrorTip="Please input your value!">
-            <nz-select
-                nzShowSearch
-                nzAllowClear
-                nzPlaceHolder="Last used line number"
-                formControlName="lineNumber"
-            >
-                <nz-option nzLabel="Jack" nzValue="jack"></nz-option>
-                <nz-option nzLabel="Lucy" nzValue="lucy"></nz-option>
-                <nz-option nzLabel="Tom" nzValue="tom"></nz-option>
             </nz-select>
         </nz-form-control>
     </nz-form-item>

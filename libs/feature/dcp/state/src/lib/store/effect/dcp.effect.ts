@@ -16,9 +16,10 @@ export class DCPEffect {
 
                 return this.dCPDataService.receiveData$('dcp').pipe(
                     map(data => {
+                        console.log(data);
                         return DCPAction.loadDCPSuccess({
-                            id: action.dcp.id,
-                            data: data
+                            key: data['key'],
+                            data: data['data']
                         });
                     })
                 );

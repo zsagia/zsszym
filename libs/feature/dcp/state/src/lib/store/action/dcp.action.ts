@@ -14,5 +14,5 @@ export const loadDCPFail = createAction(
 
 export const loadDCPSuccess = createAction(
     '[DCP] Load DCP Success',
-    props<{ id: string; data: string[] }>()
+    props<{ key: string; data: string[] }>()
 );

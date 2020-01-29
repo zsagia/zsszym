@@ -13,9 +13,11 @@ import { map, tap } from 'rxjs/operators';
 export class DcpFormComponent implements OnInit {
     public dcp: DCP = {};
     public dcpForm: FormGroup;
+    public lineNumberAndInputPrompts$: Observable<string[]>;
+    public partNumbers$: Observable<string[]>;
     public plantKeys$: Observable<string[]>;
-    public route$: Observable<string[]>;
-    public operation$: Observable<string[]>;
+    public routes$: Observable<string[]>;
+    public operations$: Observable<string[]>;
 
     public constructor(
         private formBuilder: FormBuilder,
@@ -30,7 +32,10 @@ export class DcpFormComponent implements OnInit {
                 plantKey
             );
 
-            this.dcp.id = plantKey;
+            this.dcp = {
+                id: plantKey,
+                plantKey: plantKey
+            };
 
             this.dcpStateService.load(this.dcp);
         }
@@ -43,19 +48,85 @@ export class DcpFormComponent implements OnInit {
                 route
             );
 
-            this.dcp.id = this.dcp.id + '&&&' + route;
+            this.dcp = {
+                plantKey: this.dcp.plantKey,
+                id: this.dcp.plantKey + '&&&' + route,
+                route: route
+            };
+
             this.dcpStateService.load(this.dcp);
         }
     }
 
-    public operationChangeHandler(operation: string): void {}
+    public operationChangeHandler(operation: string): void {
+        if (operation) {
+            this.dcp = {
+                plantKey: this.dcp.plantKey,
+                route: this.dcp.route,
+                id:
+                    this.dcp.plantKey +
+                    '&&&' +
+                    this.dcp.route +
+                    '&&&' +
+                    operation,
+                operation: operation
+            };
+
+            this.dcpStateService.load(this.dcp);
+        }
+    }
+
+    public lineNumberAndInputPromptChangeHandler(
+        lineNumberAndInputPrompt: string
+    ): void {
+        if (lineNumberAndInputPrompt) {
+            this.dcp = {
+                plantKey: this.dcp.plantKey,
+                route: this.dcp.route,
+                operation: this.dcp.operation,
+                id:
+                    this.dcp.plantKey +
+                    '&&&' +
+                    this.dcp.route +
+                    '&&&' +
+                    this.dcp.operation +
+                    '&&&' +
+                    lineNumberAndInputPrompt,
+                lineNumberAndInputPrompt: lineNumberAndInputPrompt
+            };
+
+            this.dcpStateService.load(this.dcp);
+        }
+    }
+
+    public partNumberChangeHandler(partNumber: string): void {
+        if (partNumber) {
+            this.dcp = {
+                plantKey: this.dcp.plantKey,
+                route: this.dcp.route,
+                operation: this.dcp.operation,
+                lineNumberAndInputPrompt: this.dcp.lineNumberAndInputPrompt,
+                id:
+                    this.dcp.plantKey +
+                    '&&&' +
+                    this.dcp.route +
+                    '&&&' +
+                    this.dcp.operation +
+                    '&&&' +
+                    this.dcp.lineNumberAndInputPrompt +
+                    '&&&' +
+                    partNumber,
+                partNumber: partNumber
+            };
+        }
+    }
 
     public ngOnInit() {
         this.dcpForm = this.formBuilder.group({
             deptOfAnalysis: [0, [Validators.required]],
             filterOutliers: [null, [Validators.required]],
             fromDate: [null, [Validators.required]],
-            lineNumber: [null, [Validators.required]],
+            lineNumberAndInputPrompt: [null, [Validators.required]],
             maximumY: [null, [Validators.required]],
             minimumY: [null, [Validators.required]],
             operation: [null, [Validators.required]],
@@ -65,35 +136,49 @@ export class DcpFormComponent implements OnInit {
             toDate: [null, [Validators.required]]
         });
 
-        this.plantKeys$ = this.dcpDataService.receiveData$(
-            DcpDataService.PROPERTY_NAMES.PLANT_KEY
+        this.plantKeys$ = this.dcpStateService.selectDataForSelect$('plantKeys').pipe(
+            tap(plantKeys =>
+                this.dcpForm.patchValue({
+                    plantKey: plantKeys[0]
+                })
+            )
         );
 
-        this.route$ = this.dcpDataService
-            .receiveData$(DcpDataService.PROPERTY_NAMES.ROUTE)
+        this.routes$ = this.dcpStateService.selectDataForSelect$('routes')
             .pipe(
                 tap(routes => {
-                    this.dcp.route = routes[0];
+                    this.dcpForm.patchValue({
+                        route: routes[0]
+                    });
                 })
             );
 
-        this.operation$ = this.dcpDataService
-            .receiveData$(DcpDataService.PROPERTY_NAMES.OPERATION)
+        this.operations$ = this.dcpStateService.selectDataForSelect$('operations')
             .pipe(
                 tap(operations => {
-                    console.log(operations);
-                    this.dcp.operation = operations[0];
+                    this.dcpForm.patchValue({
+                        operation: operations[0]
+                    });
                 })
             );
 
-        this.plantKeys$.subscribe(plantKeys => {
-            this.dcp.plantKey = plantKeys[0];
-        });
+        this.lineNumberAndInputPrompts$ = this.dcpStateService.selectDataForSelect$('lineNumberAndInputPrompts')
+            .pipe(
+                tap(lineNumberAndInputPrompts => {
+                    this.dcpForm.patchValue({
+                        lineNumberAndInputPrompt: lineNumberAndInputPrompts[0]
+                    });
+                })
+            );
 
-        this.dcpDataService.requestData(
-            DcpDataService.PROPERTY_NAMES.PLANT_KEY,
-            ''
-        );
+        this.partNumbers$ = this.dcpStateService.selectDataForSelect$('partNumbers')
+            .pipe(
+                tap(partNumbers => {
+                    this.dcpForm.patchValue({
+                        partNumber: partNumbers[0]
+                    });
+                })
+            );
 
         this.dcpStateService.load(this.dcp);
     }

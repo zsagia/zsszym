@@ -17,4 +17,10 @@ export class DCPStateServiceImpl extends DCPStateService {
     public load(dcp: DCP): void {
         this.store.dispatch(dcpActions.loadDCP({ dcp: dcp }));
     }
+
+    public selectDataForSelect$(key: string): Observable<string[]> {
+        return this.store.pipe(
+            select(dcpSelectors.selectDataForSelect(), { key })
+        )
+    }
 }
