@@ -8,16 +8,15 @@ import * as DCPAction from '../action';
 
 @Injectable()
 export class DCPEffect {
-    public loadDCP = createEffect(() =>
+    public requestDataForSelect = createEffect(() =>
         this.actions$.pipe(
-            ofType(DCPAction.loadDCP),
+            ofType(DCPAction.requestDataForSelect),
             switchMap(action => {
-                this.dCPDataService.load(action.dcp);
+                this.dcpDataService.requestDataForSelect(action.dcp);
 
-                return this.dCPDataService.receiveData$('dcp').pipe(
+                return this.dcpDataService.receiveDataForSelect$('dcp').pipe(
                     map(data => {
-                        console.log(data);
-                        return DCPAction.loadDCPSuccess({
+                        return DCPAction.requestDataForSelectSuccess({
                             key: data['key'],
                             data: data['data']
                         });
@@ -29,6 +28,6 @@ export class DCPEffect {
 
     public constructor(
         private actions$: Actions,
-        private dCPDataService: DcpDataService
+        private dcpDataService: DcpDataService
     ) {}
 }

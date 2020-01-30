@@ -27,34 +27,24 @@ export class DcpFormComponent implements OnInit {
 
     public plantKeyChangeHandler(plantKey: string): void {
         if (plantKey) {
-            this.dcpDataService.requestData(
-                DcpDataService.PROPERTY_NAMES.ROUTE,
-                plantKey
-            );
-
             this.dcp = {
                 id: plantKey,
                 plantKey: plantKey
             };
 
-            this.dcpStateService.load(this.dcp);
+            this.dcpStateService.requestDataForSelect(this.dcp);
         }
     }
 
     public routeChangeHandler(route: string): void {
         if (route) {
-            this.dcpDataService.requestData(
-                DcpDataService.PROPERTY_NAMES.OPERATION,
-                route
-            );
-
             this.dcp = {
                 plantKey: this.dcp.plantKey,
                 id: this.dcp.plantKey + '&&&' + route,
                 route: route
             };
 
-            this.dcpStateService.load(this.dcp);
+            this.dcpStateService.requestDataForSelect(this.dcp);
         }
     }
 
@@ -72,7 +62,7 @@ export class DcpFormComponent implements OnInit {
                 operation: operation
             };
 
-            this.dcpStateService.load(this.dcp);
+            this.dcpStateService.requestDataForSelect(this.dcp);
         }
     }
 
@@ -95,7 +85,7 @@ export class DcpFormComponent implements OnInit {
                 lineNumberAndInputPrompt: lineNumberAndInputPrompt
             };
 
-            this.dcpStateService.load(this.dcp);
+            this.dcpStateService.requestDataForSelect(this.dcp);
         }
     }
 
@@ -180,7 +170,7 @@ export class DcpFormComponent implements OnInit {
                 })
             );
 
-        this.dcpStateService.load(this.dcp);
+        this.dcpStateService.requestDataForSelect(this.dcp);
     }
 
     public compareFn = (o1: string, o2: string) => {

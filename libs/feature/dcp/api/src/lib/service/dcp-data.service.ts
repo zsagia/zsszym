@@ -13,9 +13,7 @@ export abstract class DcpDataService {
         PART_NUMBER: 'partNumber'
     };
 
-    public abstract load(dcp: DCP): Observable<string[]>;
+    public abstract requestDataForSelect(dcp: DCP): void;
 
-    public abstract requestData(event: string, message: string): void;
-
-    public abstract receiveData$(event: string): Observable<string[]>;
+    public abstract receiveDataForSelect$(event: string): Observable<string[]>;
 }

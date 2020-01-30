@@ -2,17 +2,17 @@ import { createAction, props } from '@ngrx/store';
 
 import { DCP } from '@zsszym/feature/dcp/api';
 
-export const loadDCP = createAction(
-    '[DCP] Load DCP',
+export const requestDataForSelect = createAction(
+    '[DCP Form] Request Data for Select',
     props<{ dcp: DCP }>()
 );
 
-export const loadDCPFail = createAction(
-    '[DCP] Load DCP FAIL',
+export const requestDataForSelectFail = createAction(
+    '[DCP Form] Request Data for Select FAIL',
     props<{ error: Error }>()
 );
 
-export const loadDCPSuccess = createAction(
-    '[DCP] Load DCP Success',
+export const requestDataForSelectSuccess = createAction(
+    '[DCP Form] Request Data for Select Success',
     props<{ key: string; data: string[] }>()
 );

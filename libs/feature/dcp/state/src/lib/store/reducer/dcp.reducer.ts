@@ -21,7 +21,7 @@ export const initialState: DCPState = adapter.getInitialState({
 
 export const dcpReducer = createReducer(
     initialState,
-    on(dcpActions.loadDCPSuccess, (state, { key, data }) => {
+    on(dcpActions.requestDataForSelectSuccess, (state, { key, data }) => {
         state[key] = data;
         
         return {
