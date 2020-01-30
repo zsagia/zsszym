@@ -17,3 +17,11 @@ export const selectDataForSelect = () =>
             return state[props.key]
         }
     );
+
+    export const selectDataForTable = () =>
+    createSelector(
+        getState,
+        (state, props) => {
+            return state['tableData']
+        }
+    );

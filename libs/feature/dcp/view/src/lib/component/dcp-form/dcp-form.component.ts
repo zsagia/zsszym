@@ -176,4 +176,8 @@ export class DcpFormComponent implements OnInit {
     public compareFn = (o1: string, o2: string) => {
         return o1 === o2;
     };
+
+    public onSubmit(): void {
+        this.dcpStateService.requestDataForTable(this.dcp);
+    }
 }

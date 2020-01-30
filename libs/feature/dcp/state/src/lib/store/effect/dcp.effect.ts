@@ -26,6 +26,23 @@ export class DCPEffect {
         )
     );
 
+    public requestDataForTable = createEffect(() =>
+        this.actions$.pipe(
+            ofType(DCPAction.requestDataForTable),
+            switchMap(action => {
+                this.dcpDataService.requestDataForTable(action.dcp);
+
+                return this.dcpDataService.receiveDataForTable$('tableData').pipe(
+                    map(data => {
+                        return DCPAction.requestDataForTableSuccess({
+                            data: data
+                        });
+                    })
+                );
+            })
+        )
+    );
+
     public constructor(
         private actions$: Actions,
         private dcpDataService: DcpDataService

@@ -16,13 +16,23 @@ export const initialState: DCPState = adapter.getInitialState({
     routes: [],
     operations: [],
     lineNumberAndInputPrompts: [],
-    partNumbers: []
+    partNumbers: [],
+    tableData: []
 });
 
 export const dcpReducer = createReducer(
     initialState,
     on(dcpActions.requestDataForSelectSuccess, (state, { key, data }) => {
         state[key] = data;
+        
+        return {
+            ...state,
+            loading: false,
+            error: null
+        };
+    }),
+    on(dcpActions.requestDataForTableSuccess, (state, { data }) => {
+        state.tableData = data;
         
         return {
             ...state,

@@ -23,4 +23,14 @@ export class DCPStateServiceImpl extends DCPStateService {
             select(dcpSelectors.selectDataForSelect(), { key })
         )
     }
+
+    public requestDataForTable(dcp: DCP): void {
+        this.store.dispatch(dcpActions.requestDataForTable({ dcp: dcp }));
+    }
+
+    public selectDataForTable$(key: string): Observable<any[]> {
+        return this.store.pipe(
+            select(dcpSelectors.selectDataForTable())
+        );
+    }
 }

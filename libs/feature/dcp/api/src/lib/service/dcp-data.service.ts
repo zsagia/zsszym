@@ -16,4 +16,8 @@ export abstract class DcpDataService {
     public abstract requestDataForSelect(dcp: DCP): void;
 
     public abstract receiveDataForSelect$(event: string): Observable<string[]>;
+
+    public abstract requestDataForTable(dcp: DCP): void;
+
+    public abstract receiveDataForTable$(event: string): Observable<any[]>;
 }

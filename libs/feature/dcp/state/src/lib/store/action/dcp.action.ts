@@ -16,3 +16,18 @@ export const requestDataForSelectSuccess = createAction(
     '[DCP Form] Request Data for Select Success',
     props<{ key: string; data: string[] }>()
 );
+
+export const requestDataForTable = createAction(
+    '[DCP Form] Request Data for Table',
+    props<{ dcp: DCP }>()
+);
+
+export const requestDataForTableFail = createAction(
+    '[DCP Form] Request Data for Table FAIL',
+    props<{ error: Error }>()
+);
+
+export const requestDataForTableSuccess = createAction(
+    '[DCP Form] Request Data for Table Success',
+    props<{ data: any[] }>()
+);

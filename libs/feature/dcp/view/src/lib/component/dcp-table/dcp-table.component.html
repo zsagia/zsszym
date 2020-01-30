@@ -1,0 +1,17 @@
+<nz-table #basicTable [nzData]="tableData$ | async">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Address</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of basicTable.data">
+        <td>{{ data.subject_name }}</td>
+        <td>{{ data.subject_time }}</td>
+        <td>{{ data.event_value }}</td>
+      </tr>
+    </tbody>
+  </nz-table>

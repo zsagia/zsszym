@@ -8,6 +8,8 @@ export interface DCPState extends EntityState<DCP> {
     lineNumberAndInputPrompts: string[];
     partNumbers: string[];
 
+    tableData?: any[];
+
     error: string;
 
     loading: boolean;

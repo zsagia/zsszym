@@ -14,7 +14,15 @@ export class DcpDataServiceImpl extends DcpDataService {
         return this.socket.fromEvent(event);
     }
 
-    public requestDataForSelect(dcp: DCP): void{
-        return this.socket.emit('dcp', dcp)
+    public receiveDataForTable$(event: string): Observable<any[]> {
+        return this.socket.fromEvent(event);
+    }
+
+    public requestDataForSelect(dcp: DCP): void {
+        this.socket.emit('dcp', dcp);
+    }
+
+    public requestDataForTable(dcp: DCP): void {
+        this.socket.emit('tableData', dcp);
     }
 }
