@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 
 @Injectable()
 export abstract class DCPStateService {
-    public abstract requestDataForSelect(dcp: DCP): void;
+    public abstract requestDataForSelect(key: string): void;
 
     public abstract selectDataForSelect$(key: string): Observable<string[]>;
 

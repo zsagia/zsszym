@@ -12,7 +12,7 @@ export class DCPEffect {
         this.actions$.pipe(
             ofType(DCPAction.requestDataForSelect),
             switchMap(action => {
-                this.dcpDataService.requestDataForSelect(action.dcp);
+                this.dcpDataService.requestDataForSelect(action.key);
 
                 return this.dcpDataService.receiveDataForSelect$('dcp').pipe(
                     map(data => {

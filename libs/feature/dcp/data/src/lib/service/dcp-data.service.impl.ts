@@ -18,8 +18,8 @@ export class DcpDataServiceImpl extends DcpDataService {
         return this.socket.fromEvent(event);
     }
 
-    public requestDataForSelect(dcp: DCP): void {
-        this.socket.emit('dcp', dcp);
+    public requestDataForSelect(key: string): void {
+        this.socket.emit('dcp', key);
     }
 
     public requestDataForTable(dcp: DCP): void {

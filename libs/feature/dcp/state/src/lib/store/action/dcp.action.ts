@@ -4,7 +4,7 @@ import { DCP } from '@zsszym/feature/dcp/api';
 
 export const requestDataForSelect = createAction(
     '[DCP Form] Request Data for Select',
-    props<{ dcp: DCP }>()
+    props<{ key: string }>()
 );
 
 export const requestDataForSelectFail = createAction(

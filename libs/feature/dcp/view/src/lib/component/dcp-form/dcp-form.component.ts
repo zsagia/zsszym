@@ -25,14 +25,23 @@ export class DcpFormComponent implements OnInit {
         private dcpStateService: DCPStateService
     ) {}
 
+    private createId(dcp: DCP): string {
+        const properties: string[] = [dcp.plantKey, dcp.route, dcp.operation];
+
+        return properties
+            .filter(item => !!item)
+            .map((item: string) => item.replace(' ', '__'))
+            .join('_');
+    }
+
     public plantKeyChangeHandler(plantKey: string): void {
         if (plantKey) {
             this.dcp = {
-                id: plantKey,
                 plantKey: plantKey
             };
+            this.dcp.id = this.createId(this.dcp);
 
-            this.dcpStateService.requestDataForSelect(this.dcp);
+            this.dcpStateService.requestDataForSelect(this.dcp.id);
         }
     }
 
@@ -40,11 +49,11 @@ export class DcpFormComponent implements OnInit {
         if (route) {
             this.dcp = {
                 plantKey: this.dcp.plantKey,
-                id: this.dcp.plantKey + '&&&' + route,
                 route: route
             };
+            this.dcp.id = this.createId(this.dcp);
 
-            this.dcpStateService.requestDataForSelect(this.dcp);
+            this.dcpStateService.requestDataForSelect(this.dcp.id);
         }
     }
 
@@ -53,16 +62,11 @@ export class DcpFormComponent implements OnInit {
             this.dcp = {
                 plantKey: this.dcp.plantKey,
                 route: this.dcp.route,
-                id:
-                    this.dcp.plantKey +
-                    '&&&' +
-                    this.dcp.route +
-                    '&&&' +
-                    operation,
                 operation: operation
             };
+            this.dcp.id = this.createId(this.dcp);
 
-            this.dcpStateService.requestDataForSelect(this.dcp);
+            this.dcpStateService.requestDataForSelect(this.dcp.id);
         }
     }
 
@@ -74,18 +78,10 @@ export class DcpFormComponent implements OnInit {
                 plantKey: this.dcp.plantKey,
                 route: this.dcp.route,
                 operation: this.dcp.operation,
-                id:
-                    this.dcp.plantKey +
-                    '&&&' +
-                    this.dcp.route +
-                    '&&&' +
-                    this.dcp.operation +
-                    '&&&' +
-                    lineNumberAndInputPrompt,
                 lineNumberAndInputPrompt: lineNumberAndInputPrompt
             };
 
-            this.dcpStateService.requestDataForSelect(this.dcp);
+            this.dcp.id = this.createId(this.dcp);
         }
     }
 
@@ -170,7 +166,7 @@ export class DcpFormComponent implements OnInit {
                 })
             );
 
-        this.dcpStateService.requestDataForSelect(this.dcp);
+        this.dcpStateService.requestDataForSelect('root');
     }
 
     public compareFn = (o1: string, o2: string) => {
