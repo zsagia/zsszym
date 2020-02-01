@@ -2,9 +2,19 @@ import { createAction, props } from '@ngrx/store';
 
 import { DCP } from '@zsszym/feature/dcp/api';
 
+export const createLineNumberAndInputPromptArray = createAction(
+    '[DCP Form] Create Line Number and Input Prompt Array',
+    props<{ key: string, data: string[] }>()
+);
+
+export const createPartNumberArray = createAction(
+    '[DCP Form] Create Part Number Array',
+    props<{ key: string, data: string[] }>()
+);
+
 export const requestDataForSelect = createAction(
     '[DCP Form] Request Data for Select',
-    props<{ key: string }>()
+    props<{ key: string, select: string }>()
 );
 
 export const requestDataForSelectFail = createAction(

@@ -5,9 +5,13 @@ import { Observable } from 'rxjs';
 
 @Injectable()
 export abstract class DCPStateService {
-    public abstract requestDataForSelect(key: string): void;
+    public abstract createLineNumberAndInputPromptArray(key: string, data: string[]);
 
-    public abstract selectDataForSelect$(key: string): Observable<string[]>;
+    public abstract createPartNumberArray(key: string, data: string[]);
+
+    public abstract requestDataForSelect(key: string, select: string): void;
+
+    public abstract selectDataForSelect$(key: string): Observable<any[]>;
 
     public abstract requestDataForTable(dcp: DCP): void;
 

@@ -21,38 +21,68 @@ export class MessageGateway
             'UAP_Probe Assembly External_V2.0',
             'UAP_Probe Assembly Internal_V2.0'
         ],
-        UAP_UAP_HLA__Assembly: [
+        'UAP_UAP_HLA Assembly': [
             'UAP_HLA_Assembly',
             'UAP_HLA_Labeling Check',
             'UAP_HLA_Rework'
         ],
-        UAP_UAP_HLA__Assembly_UAP_HLA_Assembly: [
+        'UAP_UAP_HLA Assembly_UAP_HLA_Assembly': [
             {
-                '10_DOC1837673 Revision Number': ['KTI301671']
+                partn_number: 'KTI301671',
+                line_number: '450',
+                input_prompt:
+                    'KTD103650TPR / Pkt 3.2: Pr\u00fcfung Leistungsaufnahme Pumpe und Ventilator - Start'
             },
             {
-                '100_KTD103644INS / Pkt 2.1: Reservoir KNF-Assy. auf Base-Plate montieren': [
-                    'KTI301671'
-                ]
+                partn_number: 'KTI301671',
+                line_number: '430',
+                input_prompt:
+                    'KTD103650TPR / Pkt 2.2: Pr\u00fcfung K\u00fchleistung nach >30min (<= 17.5\u00b0C)'
             },
             {
-                '110_Verwendeten Drehmomentschraubendreher eingeben': [
-                    'KTI301671'
-                ]
+                partn_number: 'KTI301671',
+                line_number: '240',
+                input_prompt: 'Verwendete F\u00fcllvorrichtung eingeben'
+            },
+            {
+                partn_number: 'KTI301671',
+                line_number: '130',
+                input_prompt:
+                    'KTD103644INS / Pkt 2.3: Vibration Damper am Reservoir KNF-Assy. anbringen'
+            },
+            {
+                partn_number: 'KTI301672',
+                line_number: '130',
+                input_prompt:
+                    'KTD103644INS / Pkt 2.3: Vibration Damper am Reservoir KNF-Assy. anbringen'
             }
         ],
-        UAP_UAP_HLA__Assembly_UAP_HLA_Labeling__Check: [
-            '10_Labelset KTD105362 und CoC KTD103645 ausgedruckt und auf Vollständigkeit und Korrektheit verifiziert',
-            '100_KTD103691INS/Pkt. 4: Positionierung der Flexe',
-            '110_KTD103691INS/Pkt. 5: Flexe und Stecker mit Luftpolstertaschen und ESD-Sack verpacken'
+        'UAP_UAP_HLA Assembly_UAP_HLA_Labeling Check': [
+            {
+                partn_number: 'KTI301671',
+                line_number: '450',
+                input_prompt:
+                    'KTD103650TPR / Pkt 3.2: Pr\u00fcfung Leistungsaufnahme Pumpe und Ventilator - Start'
+            },
+            {
+                partn_number: 'KTI301671',
+                line_number: '430',
+                input_prompt:
+                    'KTD103650TPR / Pkt 2.2: Pr\u00fcfung K\u00fchleistung nach >30min (<= 17.5\u00b0C)'
+            },
+            {
+                partn_number: 'KTI301671',
+                line_number: '240',
+                input_prompt: 'Verwendete F\u00fcllvorrichtung eingeben'
+            }
         ],
-        UAP_UAP_HLA__Assembly_UAP_HLA_Rework: [],
-        'UAP_UAP_Probe__Assembly__External_V2.0': [
+        'UAP_UAP_HLA Assembly_UAP_HLA_Rework': [],
+        'UAP_UAP_Probe Assembly External_V2.0': [
             'UAP_Assembly',
             'UAP_Final Test',
             'UAP_Labelling Check'
         ],
-        'UAP_UAP_Probe__Assembly__External_V2.0_UAP_Assembly': [
+        'UAP_UAP_Probe Assembly  External_V2.0_UAP_Assembly': [
             {
                 '10_Import der Seriennummern mit CSV File durchführen': [
                     '5670079',
@@ -76,10 +106,10 @@ export class MessageGateway
                 ]
             }
         ],
-        'UAP_UAP_Probe__Assembly__External_V2.0_UAP_Final__Test': [''],
-        'UAP_UAP_Probe__Assembly__External_V2.0_UAP_Labelling_Check': [''],
+        'UAP_UAP_Probe Assembly External_V2.0_UAP_Final Test': [''],
+        'UAP_UAP_Probe Assembly External_V2.0_UAP_Labelling_Check': [''],
 
-        'UAP_UAP_Probe__Assembly__Internal_V2.0': [
+        'UAP_UAP_Probe Assembly Internal_V2.0': [
             'UAP_Assembly',
             'UAP_Final Test',
             'UAP_Labelling Check'
@@ -6519,9 +6549,11 @@ export class MessageGateway
     }
 
     @SubscribeMessage('dcp')
-    onDCP(client, key) {
+    onDCP(client, params) {
+        console.log(params.key);
         const event = 'dcp';
-        const data = this.dcpData[key];
+        const data = { key: params.select, data: this.dcpData[params.key] };
+        console.log(data);
 
         return of({ event, data }).pipe(delay(1000));
     }

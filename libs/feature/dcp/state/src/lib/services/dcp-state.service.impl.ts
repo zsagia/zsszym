@@ -14,18 +14,26 @@ export class DCPStateServiceImpl extends DCPStateService {
         super();
     }
 
-    public requestDataForSelect(key: string): void {
-        this.store.dispatch(dcpActions.requestDataForSelect({ key: key }));
+    public createLineNumberAndInputPromptArray(key: string, data: string[]) {
+        this.store.dispatch(dcpActions.createLineNumberAndInputPromptArray({ key, data}));
     }
 
-    public selectDataForSelect$(key: string): Observable<string[]> {
+    public createPartNumberArray(key: string, data: string[]) {
+        this.store.dispatch(dcpActions.createPartNumberArray({ key, data }));
+    }
+
+    public requestDataForSelect(key: string, selected: string): void {
+        this.store.dispatch(dcpActions.requestDataForSelect({ key, select: selected }));
+    }
+
+    public selectDataForSelect$(key: string): Observable<any[]> {
         return this.store.pipe(
             select(dcpSelectors.selectDataForSelect(), { key })
         )
     }
 
     public requestDataForTable(dcp: DCP): void {
-        this.store.dispatch(dcpActions.requestDataForTable({ dcp: dcp }));
+        this.store.dispatch(dcpActions.requestDataForTable({ dcp }));
     }
 
     public selectDataForTable$(key: string): Observable<any[]> {

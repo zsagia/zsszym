@@ -5,6 +5,7 @@ export interface DCPState extends EntityState<DCP> {
     plantKeys: string[];
     routes: string[];
     operations: string[];
+    operationData: object[],
     lineNumberAndInputPrompts: string[];
     partNumbers: string[];
 

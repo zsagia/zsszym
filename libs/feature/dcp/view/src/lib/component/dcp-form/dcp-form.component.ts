@@ -1,7 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-import { DcpDataService, DCP, DCPStateService } from '@zsszym/feature/dcp/api';
+import {
+    DcpDataService,
+    DCP,
+    DCPStateService,
+    OperationData
+} from '@zsszym/feature/dcp/api';
 import { Observable } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 
@@ -17,21 +22,18 @@ export class DcpFormComponent implements OnInit {
     public partNumbers$: Observable<string[]>;
     public plantKeys$: Observable<string[]>;
     public routes$: Observable<string[]>;
+    private operationMap: Map<string, string[]>;
     public operations$: Observable<string[]>;
 
     public constructor(
         private formBuilder: FormBuilder,
-        private dcpDataService: DcpDataService,
         private dcpStateService: DCPStateService
     ) {}
 
     private createId(dcp: DCP): string {
         const properties: string[] = [dcp.plantKey, dcp.route, dcp.operation];
 
-        return properties
-            .filter(item => !!item)
-            .map((item: string) => item.replace(' ', '__'))
-            .join('_');
+        return properties.filter(item => !!item).join('_');
     }
 
     public plantKeyChangeHandler(plantKey: string): void {
@@ -41,7 +43,7 @@ export class DcpFormComponent implements OnInit {
             };
             this.dcp.id = this.createId(this.dcp);
 
-            this.dcpStateService.requestDataForSelect(this.dcp.id);
+            this.dcpStateService.requestDataForSelect(this.dcp.id, 'routes');
         }
     }
 
@@ -53,7 +55,10 @@ export class DcpFormComponent implements OnInit {
             };
             this.dcp.id = this.createId(this.dcp);
 
-            this.dcpStateService.requestDataForSelect(this.dcp.id);
+            this.dcpStateService.requestDataForSelect(
+                this.dcp.id,
+                'operations'
+            );
         }
     }
 
@@ -66,7 +71,10 @@ export class DcpFormComponent implements OnInit {
             };
             this.dcp.id = this.createId(this.dcp);
 
-            this.dcpStateService.requestDataForSelect(this.dcp.id);
+            this.dcpStateService.requestDataForSelect(
+                this.dcp.id,
+                'operationData'
+            );
         }
     }
 
@@ -82,6 +90,11 @@ export class DcpFormComponent implements OnInit {
             };
 
             this.dcp.id = this.createId(this.dcp);
+
+            this.dcpStateService.createPartNumberArray(
+                'partNumbers',
+                this.operationMap.get(lineNumberAndInputPrompt)
+            );
         }
     }
 
@@ -122,24 +135,26 @@ export class DcpFormComponent implements OnInit {
             toDate: [null, [Validators.required]]
         });
 
-        this.plantKeys$ = this.dcpStateService.selectDataForSelect$('plantKeys').pipe(
-            tap(plantKeys =>
-                this.dcpForm.patchValue({
-                    plantKey: plantKeys[0]
-                })
-            )
-        );
-
-        this.routes$ = this.dcpStateService.selectDataForSelect$('routes')
+        this.plantKeys$ = this.dcpStateService
+            .selectDataForSelect$('plantKeys')
             .pipe(
-                tap(routes => {
+                tap(plantKeys =>
                     this.dcpForm.patchValue({
-                        route: routes[0]
-                    });
-                })
+                        plantKey: plantKeys[0]
+                    })
+                )
             );
 
-        this.operations$ = this.dcpStateService.selectDataForSelect$('operations')
+        this.routes$ = this.dcpStateService.selectDataForSelect$('routes').pipe(
+            tap(routes => {
+                this.dcpForm.patchValue({
+                    route: routes[0]
+                });
+            })
+        );
+
+        this.operations$ = this.dcpStateService
+            .selectDataForSelect$('operations')
             .pipe(
                 tap(operations => {
                     this.dcpForm.patchValue({
@@ -148,7 +163,42 @@ export class DcpFormComponent implements OnInit {
                 })
             );
 
-        this.lineNumberAndInputPrompts$ = this.dcpStateService.selectDataForSelect$('lineNumberAndInputPrompts')
+        this.dcpStateService
+            .selectDataForSelect$('operationData')
+            .pipe(
+                tap(operationData => {
+                    const operationSet: Set<string> = new Set();
+                    const operationMap: Map<string, string[]> = new Map();
+
+                    operationData = operationData || [];
+
+                    operationData.forEach((operation: OperationData) => {
+                        const key =
+                            operation.line_number +
+                            ' ' +
+                            operation.input_prompt;
+
+                        operationSet.add(key);
+
+                        if (!operationMap.has(key)) {
+                            operationMap.set(key, [operation.partn_number]);
+                        } else {
+                            operationMap.get(key).push(operation.partn_number);
+                        }
+                    });
+
+                    this.operationMap = operationMap;
+
+                    this.dcpStateService.createLineNumberAndInputPromptArray(
+                        'lineNumberAndInputPrompts',
+                        Array.from(operationSet)
+                    );
+                })
+            )
+            .subscribe();
+
+        this.lineNumberAndInputPrompts$ = this.dcpStateService
+            .selectDataForSelect$('lineNumberAndInputPrompts')
             .pipe(
                 tap(lineNumberAndInputPrompts => {
                     this.dcpForm.patchValue({
@@ -157,7 +207,8 @@ export class DcpFormComponent implements OnInit {
                 })
             );
 
-        this.partNumbers$ = this.dcpStateService.selectDataForSelect$('partNumbers')
+        this.partNumbers$ = this.dcpStateService
+            .selectDataForSelect$('partNumbers')
             .pipe(
                 tap(partNumbers => {
                     this.dcpForm.patchValue({
@@ -166,7 +217,7 @@ export class DcpFormComponent implements OnInit {
                 })
             );
 
-        this.dcpStateService.requestDataForSelect('root');
+        this.dcpStateService.requestDataForSelect('root', 'plantKeys');
     }
 
     public compareFn = (o1: string, o2: string) => {

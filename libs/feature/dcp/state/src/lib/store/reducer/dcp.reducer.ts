@@ -15,6 +15,7 @@ export const initialState: DCPState = adapter.getInitialState({
     plantKeys: [],
     routes: [],
     operations: [],
+    operationData: [],
     lineNumberAndInputPrompts: [],
     partNumbers: [],
     tableData: []
@@ -22,6 +23,24 @@ export const initialState: DCPState = adapter.getInitialState({
 
 export const dcpReducer = createReducer(
     initialState,
+    on(dcpActions.createLineNumberAndInputPromptArray, (state, { key, data }) => {
+        state[key] = data;
+        
+        return {
+            ...state,
+            loading: false,
+            error: null
+        };
+    }),
+    on(dcpActions.createPartNumberArray, (state, { key, data }) => {
+        state[key] = data;
+        
+        return {
+            ...state,
+            loading: false,
+            error: null
+        };
+    }),
     on(dcpActions.requestDataForSelectSuccess, (state, { key, data }) => {
         state[key] = data;
         
