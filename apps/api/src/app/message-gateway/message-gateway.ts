@@ -76,37 +76,55 @@ export class MessageGateway
                 input_prompt: 'Verwendete F\u00fcllvorrichtung eingeben'
             }
         ],
-        'UAP_UAP_HLA Assembly_UAP_HLA_Rework': [],
+        'UAP_UAP_HLA Assembly_UAP_HLA_Rework': [
+            {
+                partn_number: 'KTI301671',
+                line_number: '80',
+                input_prompt:
+                    'Wurden irgendwelche Nebenwirkungen/Beeintr\u00e4chtigungen festgestellt ?\n'
+            },
+            {
+                partn_number: 'KTI301671',
+                line_number: '100',
+                input_prompt: 'Fehlerdokumentation in eDMS eingegeben ?\n'
+            }
+        ],
         'UAP_UAP_Probe Assembly External_V2.0': [
             'UAP_Assembly',
             'UAP_Final Test',
             'UAP_Labelling Check'
         ],
-        'UAP_UAP_Probe Assembly  External_V2.0_UAP_Assembly': [
+        'UAP_UAP_Probe Assembly External_V2.0_UAP_Assembly': [
             {
-                '10_Import der Seriennummern mit CSV File durchführen': [
-                    '5670079',
-                    'KTI156847',
-                    'KTI300263'
-                ]
+                partn_number: 'KTI301671',
+                line_number: '80',
+                input_prompt:
+                    'Wurden irgendwelche Nebenwirkungen/Beeintr\u00e4chtigungen festgestellt ?\n'
             },
             {
-                '20_Assembly auf Übereinstimmung mit CoC überprüfen': [
-                    '5670079',
-                    'KTI156847',
-                    'KTI300263'
-                ]
-            },
-            {
-                '50_Prüfen ob Begleitdokument &quot;Schallkopf Eingangsmessung&quot; vorhanden': [
-                    '5670079',
-                    'KTI156847',
-                    'KTI300263',
-                    'KTI303072'
-                ]
+                partn_number: 'KTI301671',
+                line_number: '100',
+                input_prompt: 'Fehlerdokumentation in eDMS eingegeben ?\n'
             }
         ],
-        'UAP_UAP_Probe Assembly External_V2.0_UAP_Final Test': [''],
+        'UAP_UAP_Probe Assembly External_V2.0_UAP_Final Test': [
+            {
+                partn_number: '5670079',
+                line_number: '160',
+                input_prompt:
+                    '5670079TPR/Pkt.4.5 Gesamtbreite aller Schatten < 5mm'
+            },
+            {
+                partn_number: 'KTI156847',
+                line_number: '80',
+                input_prompt: '7Q526TPR / Pkt 2.1: Pr\u00fcfung Sondencode'
+            },
+            {
+                partn_number: 'KTI156848',
+                line_number: '80',
+                input_prompt: '7Q526TPR / Pkt 2.1: Pr\u00fcfung Sondencode'
+            }
+        ],
         'UAP_UAP_Probe Assembly External_V2.0_UAP_Labelling_Check': [''],
 
         'UAP_UAP_Probe Assembly Internal_V2.0': [
