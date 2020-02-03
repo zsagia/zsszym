@@ -87,6 +87,17 @@ export class MessageGateway
                 partn_number: 'KTI301671',
                 line_number: '100',
                 input_prompt: 'Fehlerdokumentation in eDMS eingegeben ?\n'
+            },
+            {
+                partn_number: 'KTI301671',
+                line_number: '110',
+                input_prompt:
+                    'Laut 7S405 wieder in den Fertigungsprozess einsteuern'
+            },
+            {
+                partn_number: 'KTI301671',
+                line_number: '10',
+                input_prompt: 'Flexrevision feststellen'
             }
         ],
         'UAP_UAP_Probe Assembly External_V2.0': [
@@ -105,6 +116,17 @@ export class MessageGateway
                 partn_number: 'KTI301671',
                 line_number: '100',
                 input_prompt: 'Fehlerdokumentation in eDMS eingegeben ?\n'
+            },
+            {
+                partn_number: 'KTI301671',
+                line_number: '110',
+                input_prompt:
+                    'Laut 7S405 wieder in den Fertigungsprozess einsteuern'
+            },
+            {
+                partn_number: 'KTI301671',
+                line_number: '10',
+                input_prompt: 'Flexrevision feststellen'
             }
         ],
         'UAP_UAP_Probe Assembly External_V2.0_UAP_Final Test': [
@@ -123,9 +145,38 @@ export class MessageGateway
                 partn_number: 'KTI156848',
                 line_number: '80',
                 input_prompt: '7Q526TPR / Pkt 2.1: Pr\u00fcfung Sondencode'
+            },
+            {
+                partn_number: 'KTI157023',
+                line_number: '100',
+                input_prompt: '7R921TPR / Pkt 3.4: Pr\u00fcfung B-Bild'
+            },
+            {
+                partn_number: 'KTI195894',
+                line_number: '90',
+                input_prompt:
+                    'KTD100650TPR / Pkt 3.2: Pr\u00fcfung Reihenfolge aller Elemente'
             }
         ],
-        'UAP_UAP_Probe Assembly External_V2.0_UAP_Labelling_Check': [''],
+        'UAP_UAP_Probe Assembly External_V2.0_UAP_Labelling Check': [
+            {
+                partn_number: 'KTI301671',
+                line_number: '80',
+                input_prompt:
+                    'Wurden irgendwelche Nebenwirkungen/Beeintr\u00e4chtigungen festgestellt ?\n'
+            },
+            {
+                partn_number: 'KTI301671',
+                line_number: '100',
+                input_prompt: 'Fehlerdokumentation in eDMS eingegeben ?\n'
+            },
+            {
+                partn_number: 'KTI301671',
+                line_number: '110',
+                input_prompt:
+                    'Laut 7S405 wieder in den Fertigungsprozess einsteuern'
+            }
+        ],
 
         'UAP_UAP_Probe Assembly Internal_V2.0': [
             'UAP_Assembly',
@@ -133,6 +184,155 @@ export class MessageGateway
             'UAP_Labelling Check'
         ],
         CAW: ['CAW_CAB_Integration', 'CAW_MAG_Product', 'CAW_TAB_Integration'],
+        CAW_CAW_CAB_Integration: ['CAW_CAB_Packing', 'CAW_CAB_PDI'],
+        CAW_CAW_CAB_Integration_CAW_CAB_Packing: [
+            {
+                partn_number: '5323286-200',
+                line_number: '50',
+                input_prompt:
+                    'Paste Tilt watch on the packing box as shown in SOP'
+            },
+            {
+                partn_number: 'M50022AS',
+                line_number: '10',
+                input_prompt: 'I have verified prechecks as per SOP'
+            },
+            {
+                partn_number: 'M50022AS',
+                line_number: '45',
+                input_prompt:
+                    'Fix the corner bracket using screws at 12 locations (3 corners/side x 4 sides) by using Screw driver/Power tool'
+            },
+            {
+                partn_number: 'M50022AS',
+                line_number: '40',
+                input_prompt:
+                    'Fix wooden blocks on the EPE foam and close the top cover with clamp and edge protector.'
+            },
+            {
+                partn_number: '5323286-200',
+                line_number: '15',
+                input_prompt:
+                    'I have verified availability accessories as per SOP'
+            },
+            {
+                partn_number: '5323286-200',
+                line_number: '45',
+                input_prompt:
+                    'Fix the corner bracket using screws at 12 locations (3 corners/side x 4 sides) by using Screw driver/Power tool'
+            }
+        ],
+        CAW_CAW_CAB_Integration_CAW_CAB_PDI: [
+            {
+                partn_number: 'M50022AR',
+                line_number: '15',
+                input_prompt:
+                    'I have ensured that the Product Part/Serial no. matches with DHR and ICD card'
+            },
+            {
+                partn_number: '5323286-200',
+                line_number: '35',
+                input_prompt:
+                    'Record the latest revision of Mulan OM Booklet in multi-language P/N 6339125-199'
+            },
+            {
+                partn_number: 'M50022AR',
+                line_number: '5',
+                input_prompt: 'Refer SOP DOC2158326'
+            },
+            {
+                partn_number: 'M50022AS',
+                line_number: '35',
+                input_prompt:
+                    'Record the latest revision of Mulan OM Booklet in multi-language P/N 6339125-199'
+            }
+        ],
+        CAW_CAW_MAG_Product: ['CAW_MAG_Ramp down', 'CAW_MAG_FQC'],
+        'CAW_CAW_MAG_Product_CAW_MAG_Ramp down': [
+            {
+                partn_number: 'G50023CE',
+                line_number: '1000',
+                input_prompt:
+                    'Record the current after adjusting the voltage to -1.40V as per ramp down profile___A.'
+            },
+            {
+                partn_number: 'G50023CE',
+                line_number: '1200',
+                input_prompt:
+                    'Record the pressure inside the magnet before ramp lead removal___psi'
+            },
+            {
+                partn_number: 'G50023CE',
+                line_number: '304',
+                input_prompt: 'Record the Dewar pressure____psig.'
+            },
+            {
+                partn_number: 'G5005GT',
+                line_number: '600',
+                input_prompt:
+                    'Record the current after adjusting the voltage to -0.30V as per ramp down profile___A.'
+            }
+        ],
+        CAW_CAW_MAG_Product_CAW_MAG_FQC: [
+            {
+                partn_number: 'G5005GT',
+                line_number: '5',
+                input_prompt:
+                    'I confirm that I have not been involved in the test or build of the product/component/device'
+            },
+            {
+                partn_number: 'G5005GT',
+                line_number: '30',
+                input_prompt:
+                    'SHIPMENT AUTHORIZATION: I have ensured the information in the Device History Record has been reviewed, verified for completeness and acceptability, and approved, thereby authorizing this product for shipment.  All nonconformance\u2019s are confirmed Resolved and Closed.  All Concessions listed in the DHR are applicable and not expired.  The Shipment Authorization Form has been applied to the product'
+            }
+        ],
+        CAW_CAW_TAB_Integration: ['CAW_TAB_Testing', 'CAW_TAB_FQC'],
+        CAW_CAW_TAB_Integration_CAW_TAB_Testing: [
+            {
+                partn_number: 'M50022LL',
+                line_number: '15',
+                input_prompt:
+                    'I have ensured Coil ID test is completed as per SOP'
+            },
+            {
+                partn_number: '5777777-2',
+                line_number: '20',
+                input_prompt:
+                    'I have verified the serial number against eDHR/DHR and attached the Coil & table report'
+            },
+            {
+                partn_number: '5777777-2',
+                line_number: '10',
+                input_prompt: 'Record the code of sensitivity fixture'
+            },
+            {
+                partn_number: 'M50022LL',
+                line_number: '20',
+                input_prompt:
+                    'I have verified the serial number against eDHR/DHR and attached the Coil & table report'
+            }
+        ],
+        CAW_CAW_TAB_Integration_CAW_TAB_FQC: [
+            {
+                partn_number: 'M50022LL',
+                line_number: '30',
+                input_prompt:
+                    'SHIPMENT AUTHORIZATION : I have ensured the information in the Device History Record has been reviewed, verified for completeness and acceptability, and approved, thereby authorizing this product for shipment.\u00a0 All nonconformances are confirmed Resolved and Closed.\u00a0 All Concessions listed in the DHR are applicable and not expired.\u00a0 The Shipment Authorization Form has been applied to the product.'
+            },
+            {
+                partn_number: 'M50022LL',
+                line_number: '5',
+                input_prompt:
+                    'I confirm I have not been involved in the test or build of the product/componenet/device\n'
+            },
+            {
+                partn_number: '5777777-2',
+                line_number: '5',
+                input_prompt:
+                    'I confirm I have not been involved in the test or build of the product/componenet/device\n'
+            }
+        ],
         HLP: ['HLP_Nova_route', 'HLP_SubAssy_Route']
     };
 
