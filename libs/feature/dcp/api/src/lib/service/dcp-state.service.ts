@@ -5,7 +5,10 @@ import { Observable } from 'rxjs';
 
 @Injectable()
 export abstract class DCPStateService {
-    public abstract createLineNumberAndInputPromptArray(key: string, data: string[]);
+    public abstract createLineNumberAndInputPromptArray(
+        key: string,
+        data: string[]
+    );
 
     public abstract createPartNumberArray(key: string, data: string[]);
 

@@ -15,7 +15,9 @@ export class DCPStateServiceImpl extends DCPStateService {
     }
 
     public createLineNumberAndInputPromptArray(key: string, data: string[]) {
-        this.store.dispatch(dcpActions.createLineNumberAndInputPromptArray({ key, data}));
+        this.store.dispatch(
+            dcpActions.createLineNumberAndInputPromptArray({ key, data })
+        );
     }
 
     public createPartNumberArray(key: string, data: string[]) {
@@ -23,13 +25,15 @@ export class DCPStateServiceImpl extends DCPStateService {
     }
 
     public requestDataForSelect(key: string, selected: string): void {
-        this.store.dispatch(dcpActions.requestDataForSelect({ key, select: selected }));
+        this.store.dispatch(
+            dcpActions.requestDataForSelect({ key, select: selected })
+        );
     }
 
     public selectDataForSelect$(key: string): Observable<any[]> {
         return this.store.pipe(
             select(dcpSelectors.selectDataForSelect(), { key })
-        )
+        );
     }
 
     public requestDataForTable(dcp: DCP): void {
@@ -37,8 +41,6 @@ export class DCPStateServiceImpl extends DCPStateService {
     }
 
     public selectDataForTable$(key: string): Observable<any[]> {
-        return this.store.pipe(
-            select(dcpSelectors.selectDataForTable())
-        );
+        return this.store.pipe(select(dcpSelectors.selectDataForTable()));
     }
 }

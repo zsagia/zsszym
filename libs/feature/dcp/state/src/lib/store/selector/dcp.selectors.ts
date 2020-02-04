@@ -14,14 +14,14 @@ export const selectDataForSelect = () =>
     createSelector(
         getState,
         (state, props) => {
-            return state[props.key]
+            return state[props.key];
         }
     );
 
-    export const selectDataForTable = () =>
+export const selectDataForTable = () =>
     createSelector(
         getState,
         (state, props) => {
-            return state['tableData']
+            return state['tableData'];
         }
     );

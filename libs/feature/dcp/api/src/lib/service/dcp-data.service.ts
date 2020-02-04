@@ -5,7 +5,6 @@ import { DCP } from '../model';
 
 @Injectable()
 export abstract class DcpDataService {
-
     public abstract requestDataForSelect(key: string, select: string): void;
 
     public abstract receiveDataForSelect$(event: string): Observable<any[]>;

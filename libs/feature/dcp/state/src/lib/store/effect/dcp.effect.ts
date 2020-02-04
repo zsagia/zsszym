@@ -13,8 +13,6 @@ export class DCPEffect {
         this.actions$.pipe(
             ofType(DCPAction.createLineNumberAndInputPromptArray),
             switchMap(action => {
-                
-
                 return this.dcpDataService.receiveDataForSelect$('dcp').pipe(
                     map(data => {
                         return DCPAction.requestDataForSelectSuccess({
@@ -31,7 +29,10 @@ export class DCPEffect {
         this.actions$.pipe(
             ofType(DCPAction.requestDataForSelect),
             switchMap(action => {
-                this.dcpDataService.requestDataForSelect(action.key, action.select);
+                this.dcpDataService.requestDataForSelect(
+                    action.key,
+                    action.select
+                );
 
                 return this.dcpDataService.receiveDataForSelect$('dcp').pipe(
                     map(data => {
@@ -51,13 +52,15 @@ export class DCPEffect {
             switchMap(action => {
                 this.dcpDataService.requestDataForTable(action.dcp);
 
-                return this.dcpDataService.receiveDataForTable$('tableData').pipe(
-                    map(data => {
-                        return DCPAction.requestDataForTableSuccess({
-                            data: data
-                        });
-                    })
-                );
+                return this.dcpDataService
+                    .receiveDataForTable$('tableData')
+                    .pipe(
+                        map(data => {
+                            return DCPAction.requestDataForTableSuccess({
+                                data: data
+                            });
+                        })
+                    );
             })
         )
     );
