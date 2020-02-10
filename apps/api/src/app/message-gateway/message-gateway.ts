@@ -1,20 +1,19 @@
-import { of } from 'rxjs';
-import { delay } from 'rxjs/operators';
-
 import {
     OnGatewayConnection,
     OnGatewayDisconnect,
     SubscribeMessage,
     WebSocketGateway,
-    WebSocketServer
+    WebSocketServer,
 } from '@nestjs/websockets';
+import { of } from 'rxjs';
+import { delay } from 'rxjs/operators';
 
 @WebSocketGateway()
 export class MessageGateway
     implements OnGatewayConnection, OnGatewayDisconnect {
     @WebSocketServer() server;
 
-    private dcpData = {
+    private readonly dcpData = {
         root: ['UAP', 'CAW', 'HLP'],
         UAP: [
             'UAP_HLA Assembly',
@@ -210,6 +209,46 @@ export class MessageGateway
             'UAP_Assembly',
             'UAP_Final Test',
             'UAP_Labelling Check'
+        ],
+        'UAP_UAP_Probe Assembly Internal_V2.0_UAP_Assembly': [
+            {
+                part_number: 'KTI156995',
+                line_number: 870,
+                input_prompt:
+                    '4N427INS: Name Label am Steckergeh\u00e4use anbringen',
+                data_type: 'Text'
+            }
+        ],
+        'UAP_UAP_Probe Assembly Internal_V2.0_UAP_Final Test': [
+            {
+                part_number: 'GP000053',
+                line_number: 110,
+                input_prompt: 'hv_GP400_HV_POS_Medium',
+                data_type: 'Float'
+            },
+            {
+                part_number: 'KTI302457',
+                line_number: 100,
+                input_prompt:
+                    'KTD105627TPR Pkt 4.2: Pr\u00fcfung Bildartefakte - PW Doppler St\u00f6rung: Verifizierung',
+                data_type: 'Text'
+            }
+        ],
+        'UAP_UAP_Probe Assembly Internal_V2.0_UAP_Labelling Check': [
+            {
+                part_number: 'KTI302457',
+                line_number: 20,
+                input_prompt:
+                    'DOC1886838/Pkt.7.1.1 Labelset, Certificate of Compliance V Probe und Instruction for Field Engineers for Installation of System DVD \u00fcber eDHR ausdrucken',
+                data_type: 'Text'
+            },
+            {
+                part_number: 'KTI156995',
+                line_number: 80,
+                input_prompt:
+                    'DOC1886838/Pkt.11.1.6 Revision der beigelegten Care Card KTI106089',
+                data_type: 'Text'
+            }
         ],
         CAW: ['CAW_CAB_Integration', 'CAW_MAG_Product', 'CAW_TAB_Integration'],
         CAW_CAW_CAB_Integration: ['CAW_CAB_Packing', 'CAW_CAB_PDI'],
@@ -463,8 +502,8 @@ export class MessageGateway
             }
         ]
     };
-
-    private visualizationData1 = [
+    
+    private readonly visualizationData1 = [
         [1555918560000, 521.9],
         [1555918800000, 530.5],
         [1555918860000, 457.4],
@@ -1720,8 +1759,8 @@ export class MessageGateway
         [1563761340000, 559],
         [1563762540000, 521.3]
     ];
-
-    private visualizationData2 = [
+    
+    private readonly visualizationData2 = [
         [1555919040000, 9],
         [1555932480000, 2],
         [1555933380000, 3],
@@ -2991,7 +3030,7 @@ export class MessageGateway
         [1563761340000, 2],
         [1563762540000, 7]
     ];
-
+    
     private visualizationData3 = [
         [1546431600000, 0.0186, 0, 0.2],
         [1546451580000, 0.0259, 0, 0.2],
@@ -4165,7 +4204,7 @@ export class MessageGateway
         console.log('rerererer');
     }
 
-    @SubscribeMessage('dcp')
+    @SubscribeMessage('dcp') ///user/dcpUniqueFilterValues, /szymon/dcpUniqueFilterValues
     onDCP(client, params) {
         console.log(params.key);
         const event = 'dcp';
