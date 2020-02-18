@@ -3,7 +3,7 @@ import {
     OnGatewayDisconnect,
     SubscribeMessage,
     WebSocketGateway,
-    WebSocketServer,
+    WebSocketServer
 } from '@nestjs/websockets';
 import { of } from 'rxjs';
 import { delay } from 'rxjs/operators';
@@ -502,7 +502,7 @@ export class MessageGateway
             }
         ]
     };
-    
+
     private readonly visualizationData1 = [
         [1555918560000, 521.9],
         [1555918800000, 530.5],
@@ -1759,7 +1759,7 @@ export class MessageGateway
         [1563761340000, 559],
         [1563762540000, 521.3]
     ];
-    
+
     private readonly visualizationData2 = [
         [1555919040000, 9],
         [1555932480000, 2],
@@ -3030,8 +3030,8 @@ export class MessageGateway
         [1563761340000, 2],
         [1563762540000, 7]
     ];
-    
-    private visualizationData3 = [
+
+    private readonly visualizationData3 = [
         [1546431600000, 0.0186, 0, 0.2],
         [1546451580000, 0.0259, 0, 0.2],
         [1546464180000, 0.0228, 0, 0.2],
@@ -4192,6 +4192,842 @@ export class MessageGateway
         [1579131780000, 0.0121, 0, 0.2]
     ];
 
+    private readonly analysisData = [
+        {
+            X_name:
+                '40_C1-5-D Backing Plate Thickness2 \n(1.450~1.550mm)_5305759',
+            p_value: 4.85e-8,
+            df: 1,
+            type: 'N',
+            dcr_route_name: 'PBJ_C1-5-D Transducer Route',
+            route_step_name: 40,
+            dcr_op_name: 'PBJ_Lamination',
+            line_number: 40,
+            warning: 'OK'
+        },
+        {
+            X_name:
+                '30_C1-5-D Backing Plate Thickness1 \n(1.450~1.550mm)_5305759',
+            p_value: 8.07e-7,
+            df: 1,
+            type: 'N',
+            dcr_route_name: 'PBJ_C1-5-D Transducer Route',
+            route_step_name: 40,
+            dcr_op_name: 'PBJ_Lamination',
+            line_number: 30,
+            warning: 'OK'
+        },
+        {
+            X_name:
+                '50_C1-5-D Backing Plate Thickness3 \n(1.450~1.550mm)_5305759',
+            p_value: 0.00000863,
+            df: 1,
+            type: 'N',
+            dcr_route_name: 'PBJ_C1-5-D Transducer Route',
+            route_step_name: 40,
+            dcr_op_name: 'PBJ_Lamination',
+            line_number: 50,
+            warning: 'OK'
+        },
+        {
+            X_name: 'subject_time',
+            p_value: 0.00463969,
+            df: 1,
+            type: '',
+            dcr_route_name: '',
+            route_step_name: '',
+            dcr_op_name: '',
+            line_number: '',
+            warning: 'OK'
+        },
+        {
+            X_name: 'subject_id',
+            p_value: 0.022555577,
+            df: 1,
+            type: '',
+            dcr_route_name: '',
+            route_step_name: '',
+            dcr_op_name: '',
+            line_number: '',
+            warning: 'OK'
+        },
+        {
+            X_name: '50_Blade Lot Number_5305759',
+            p_value: 0.059533404,
+            df: 9,
+            type: 'C',
+            dcr_route_name: 'PBJ_C1-5-D Transducer Route',
+            route_step_name: 30,
+            dcr_op_name: 'PBJ_Sub Dicing',
+            line_number: 50,
+            warning: 'OK'
+        },
+        {
+            X_name: '80_C1-5-D FPC Lot Number_5305759',
+            p_value: 0.079494066,
+            df: 14,
+            type: 'C',
+            dcr_route_name: 'PBJ_C1-5-D Transducer Route',
+            route_step_name: 40,
+            dcr_op_name: 'PBJ_Lamination',
+            line_number: 80,
+            warning: 'OK'
+        },
+        {
+            X_name: '40_ML1 Lot Number_5305759',
+            p_value: 0.088684427,
+            df: 16,
+            type: 'C',
+            dcr_route_name: 'PBJ_C1-5-D Transducer Route',
+            route_step_name: 10,
+            dcr_op_name: 'PBJ_Sub Lamination',
+            line_number: 40,
+            warning: 'OK'
+        },
+        {
+            X_name: '80_C1-5-D DML Lot Number_5305759',
+            p_value: 0.105949914,
+            df: 26,
+            type: 'C',
+            dcr_route_name: 'PBJ_C1-5-D Transducer Route',
+            route_step_name: 10,
+            dcr_op_name: 'PBJ_Sub Lamination',
+            line_number: 80,
+            warning: 'OK'
+        },
+        {
+            X_name: '20_ML2 Lot Number_5305759',
+            p_value: 0.15961504,
+            df: 16,
+            type: 'C',
+            dcr_route_name: 'PBJ_C1-5-D Transducer Route',
+            route_step_name: 10,
+            dcr_op_name: 'PBJ_Sub Lamination',
+            line_number: 20,
+            warning: 'OK'
+        },
+        {
+            X_name: '90_C1-5-D FPC  Copper Thickness \n(0.057~0.073mm)_5305759',
+            p_value: 0.283146791,
+            df: 1,
+            type: 'N',
+            dcr_route_name: 'PBJ_C1-5-D Transducer Route',
+            route_step_name: 40,
+            dcr_op_name: 'PBJ_Lamination',
+            line_number: 90,
+            warning: 'OK'
+        },
+        {
+            X_name: '60_Blade Life_5305759',
+            p_value: 0.336480552,
+            df: 123,
+            type: 'C',
+            dcr_route_name: 'PBJ_C1-5-D Transducer Route',
+            route_step_name: 30,
+            dcr_op_name: 'PBJ_Sub Dicing',
+            line_number: 60,
+            warning: 'OK'
+        },
+        {
+            X_name: '140_JIG Number_5305759',
+            p_value: 0.431989329,
+            df: 38,
+            type: 'C',
+            dcr_route_name: 'PBJ_C1-5-D Transducer Route',
+            route_step_name: 40,
+            dcr_op_name: 'PBJ_Lamination',
+            line_number: 140,
+            warning: 'OK'
+        },
+        {
+            X_name:
+                '10_<U+539A><U+3055><U+6E2C><U+5B9A><U+5668><U+7BA1><U+7406><U+756A><U+53F7>// measuring instrument management number_5305759',
+            p_value: 0.433747052,
+            df: 1,
+            type: 'C',
+            dcr_route_name: 'PBJ_C1-5-D Transducer Route',
+            route_step_name: 10,
+            dcr_op_name: 'PBJ_Sub Lamination',
+            line_number: 10,
+            warning: 'OK'
+        },
+        {
+            X_name: '60_PZT Lot Number_5305759',
+            p_value: 0.446682314,
+            df: 552,
+            type: 'C',
+            dcr_route_name: 'PBJ_C1-5-D Transducer Route',
+            route_step_name: 10,
+            dcr_op_name: 'PBJ_Sub Lamination',
+            line_number: 60,
+            warning: 'OK'
+        },
+        {
+            X_name: '50_C1-5-D ML1 Thickness \n(0.180~0.194mm)_5305759',
+            p_value: 0.463728384,
+            df: 1,
+            type: 'N',
+            dcr_route_name: 'PBJ_C1-5-D Transducer Route',
+            route_step_name: 10,
+            dcr_op_name: 'PBJ_Sub Lamination',
+            line_number: 50,
+            warning: 'OK'
+        },
+        {
+            X_name: '30_C1-5-D ML2 Thickness \n(0.143~0.149mm)_5305759',
+            p_value: 0.496149411,
+            df: 1,
+            type: 'N',
+            dcr_route_name: 'PBJ_C1-5-D Transducer Route',
+            route_step_name: 10,
+            dcr_op_name: 'PBJ_Sub Lamination',
+            line_number: 30,
+            warning: 'OK'
+        },
+        {
+            X_name: '140_<U+63A5><U+7740><U+5264><U+9078><U+629E>_5305759',
+            p_value: 0.576774241,
+            df: 1,
+            type: 'C',
+            dcr_route_name: 'PBJ_C1-5-D Transducer Route',
+            route_step_name: 10,
+            dcr_op_name: 'PBJ_Sub Lamination',
+            line_number: 140,
+            warning: 'OK'
+        },
+        {
+            X_name: '150_JIG Number_5305759',
+            p_value: 0.656192588,
+            df: 24,
+            type: 'C',
+            dcr_route_name: 'PBJ_C1-5-D Transducer Route',
+            route_step_name: 10,
+            dcr_op_name: 'PBJ_Sub Lamination',
+            line_number: 150,
+            warning: 'OK'
+        },
+        {
+            X_name:
+                '60_<U+5207><U+6B8B><U+3057><U+91CF>(<U+81EA><U+52D5><U+8A08><U+7B97>) // Z-INDEX (Calculation)_5305759',
+            p_value: 0.669692361,
+            df: 1,
+            type: 'N',
+            dcr_route_name: 'PBJ_C1-5-D Transducer Route',
+            route_step_name: 30,
+            dcr_op_name: 'PBJ_Sub Dicing',
+            line_number: 60,
+            warning: 'OK'
+        },
+        {
+            X_name:
+                '70_C1-5-D PZT Thickness \n( <U+76EE><U+5B89><U+5024>:0.263-0.273mm)_5305759',
+            p_value: 0.697553931,
+            df: 1,
+            type: 'N',
+            dcr_route_name: 'PBJ_C1-5-D Transducer Route',
+            route_step_name: 10,
+            dcr_op_name: 'PBJ_Sub Lamination',
+            line_number: 70,
+            warning: 'OK'
+        },
+        {
+            X_name: '150_Lamination<U+52A0><U+5727><U+5B8C><U+4E86>_5305759',
+            p_value: 0.806019207,
+            df: 1,
+            type: 'C',
+            dcr_route_name: 'PBJ_C1-5-D Transducer Route',
+            route_step_name: 40,
+            dcr_op_name: 'PBJ_Lamination',
+            line_number: 150,
+            warning: 'OK'
+        },
+        {
+            X_name:
+                '80_<U+5207><U+6B8B><U+3057><U+91CF>(<U+81EA><U+52D5><U+8A08><U+7B97>) // Z-INDEX (Calculation)_5305759',
+            p_value: 0.808685027,
+            df: 1,
+            type: 'N',
+            dcr_route_name: 'PBJ_C1-5-D Transducer Route',
+            route_step_name: 30,
+            dcr_op_name: 'PBJ_Sub Dicing',
+            line_number: 80,
+            warning: 'OK'
+        },
+        {
+            X_name:
+                '90_C1-5-D DML Thickness \n(<U+76EE><U+5B89><U+5024>: 0.196~0.204mm)_5305759',
+            p_value: 0.826143299,
+            df: 1,
+            type: 'N',
+            dcr_route_name: 'PBJ_C1-5-D Transducer Route',
+            route_step_name: 10,
+            dcr_op_name: 'PBJ_Sub Lamination',
+            line_number: 90,
+            warning: 'OK'
+        },
+        {
+            X_name: '100_<U+90E8><U+6750><U+6D17><U+6D44>_5305759',
+            p_value: '',
+            df: '',
+            type: 'C',
+            dcr_route_name: 'PBJ_C1-5-D Transducer Route',
+            route_step_name: 10,
+            dcr_op_name: 'PBJ_Sub Lamination',
+            line_number: 100,
+            warning:
+                'contrasts can be applied only to factors with 2 or more levels'
+        },
+        {
+            X_name:
+                '110_<U+30D7><U+30E9><U+30BA><U+30DE><U+51E6><U+7406>_<U+7D2B><U+5916><U+7DDA><U+30B7><U+30FC><U+30EB><U+306E><U+8272><U+78BA><U+8A8D>_5305759',
+            p_value: '',
+            df: '',
+            type: 'C',
+            dcr_route_name: 'PBJ_C1-5-D Transducer Route',
+            route_step_name: 10,
+            dcr_op_name: 'PBJ_Sub Lamination',
+            line_number: 110,
+            warning:
+                'contrasts can be applied only to factors with 2 or more levels'
+        },
+        {
+            X_name:
+                '120_<U+30D7><U+30E9><U+30A4><U+30DE><U+30FC><U+51E6><U+7406>_5305759',
+            p_value: '',
+            df: '',
+            type: 'C',
+            dcr_route_name: 'PBJ_C1-5-D Transducer Route',
+            route_step_name: 10,
+            dcr_op_name: 'PBJ_Sub Lamination',
+            line_number: 120,
+            warning:
+                'contrasts can be applied only to factors with 2 or more levels'
+        },
+        {
+            X_name:
+                '130_<U+5727><U+529B><U+30C1><U+30A7><U+30C3><U+30AF>_5305759',
+            p_value: '',
+            df: '',
+            type: 'C',
+            dcr_route_name: 'PBJ_C1-5-D Transducer Route',
+            route_step_name: 10,
+            dcr_op_name: 'PBJ_Sub Lamination',
+            line_number: 130,
+            warning:
+                'contrasts can be applied only to factors with 2 or more levels'
+        },
+        {
+            X_name:
+                '160_Sub Lamination<U+52A0><U+5727><U+5B8C><U+4E86>_5305759',
+            p_value: '',
+            df: '',
+            type: 'C',
+            dcr_route_name: 'PBJ_C1-5-D Transducer Route',
+            route_step_name: 10,
+            dcr_op_name: 'PBJ_Sub Lamination',
+            line_number: 160,
+            warning:
+                'contrasts can be applied only to factors with 2 or more levels'
+        },
+        {
+            X_name:
+                '170_<U+30BF><U+30A4><U+30DE><U+30FC>0%<U+3001><U+6E29><U+5EA6>35<U+5EA6><U+4EE5><U+4E0B><U+78BA><U+8A8D>_5305759',
+            p_value: '',
+            df: '',
+            type: 'C',
+            dcr_route_name: 'PBJ_C1-5-D Transducer Route',
+            route_step_name: 10,
+            dcr_op_name: 'PBJ_Sub Lamination',
+            line_number: 170,
+            warning:
+                'contrasts can be applied only to factors with 2 or more levels'
+        },
+        {
+            X_name:
+                '180_Sub Lamination<U+4F5C><U+696D><U+5B8C><U+4E86><U+78BA><U+8A8D> // Lamination JIG Set_5305759',
+            p_value: '',
+            df: '',
+            type: 'C',
+            dcr_route_name: 'PBJ_C1-5-D Transducer Route',
+            route_step_name: 10,
+            dcr_op_name: 'PBJ_Sub Lamination',
+            line_number: 180,
+            warning:
+                'contrasts can be applied only to factors with 2 or more levels'
+        },
+        {
+            X_name:
+                '10_<U+4E0D><U+5177><U+5408><U+6709><U+7121><U+306E><U+78BA><U+8A8D> // Outer Inspection_5305759',
+            p_value: '',
+            df: '',
+            type: 'C',
+            dcr_route_name: 'PBJ_C1-5-D Transducer Route',
+            route_step_name: 20,
+            dcr_op_name: 'PBJ_Sub Trimming',
+            line_number: 10,
+            warning:
+                'contrasts can be applied only to factors with 2 or more levels'
+        },
+        {
+            X_name:
+                '20_Sub Trimming<U+4F5C><U+696D><U+5B8C><U+4E86><U+78BA><U+8A8D>_5305759',
+            p_value: '',
+            df: '',
+            type: 'C',
+            dcr_route_name: 'PBJ_C1-5-D Transducer Route',
+            route_step_name: 20,
+            dcr_op_name: 'PBJ_Sub Trimming',
+            line_number: 20,
+            warning:
+                'contrasts can be applied only to factors with 2 or more levels'
+        },
+        {
+            X_name:
+                '30_<U+30DE><U+30B9><U+30AD><U+30F3><U+30B0><U+30C6><U+30FC><U+30D7><U+78BA><U+8A8D> // Film presence_5305759',
+            p_value: '',
+            df: '',
+            type: 'C',
+            dcr_route_name: 'PBJ_C1-5-D Transducer Route',
+            route_step_name: 20,
+            dcr_op_name: 'PBJ_Sub Trimming',
+            line_number: 30,
+            warning:
+                'contrasts can be applied only to factors with 2 or more levels'
+        },
+        {
+            X_name:
+                '40_<U+30C6><U+30FC><U+30D7><U+539A><U+3055>=0.04 // Constant for the transducer (Tape Thickness)_5305759',
+            p_value: '',
+            df: 599,
+            type: 'N',
+            dcr_route_name: 'PBJ_C1-5-D Transducer Route',
+            route_step_name: 20,
+            dcr_op_name: 'PBJ_Sub Trimming',
+            line_number: 40,
+            warning: 'OK'
+        },
+        {
+            X_name:
+                '50_PZT<U+5207><U+8FBC><U+307F><U+91CF>=0.045 // Constant for the transducer (PZT Cut Depth)_5305759',
+            p_value: '',
+            df: 599,
+            type: 'N',
+            dcr_route_name: 'PBJ_C1-5-D Transducer Route',
+            route_step_name: 20,
+            dcr_op_name: 'PBJ_Sub Trimming',
+            line_number: 50,
+            warning: 'OK'
+        },
+        {
+            X_name:
+                '10_<U+4E0D><U+5177><U+5408><U+6709><U+7121><U+306E><U+78BA><U+8A8D> // Outer Inspection_5305759',
+            p_value: '',
+            df: '',
+            type: 'C',
+            dcr_route_name: 'PBJ_C1-5-D Transducer Route',
+            route_step_name: 30,
+            dcr_op_name: 'PBJ_Sub Dicing',
+            line_number: 10,
+            warning:
+                'contrasts can be applied only to factors with 2 or more levels'
+        },
+        {
+            X_name:
+                '20_<U+30DE><U+30B9><U+30AD><U+30F3><U+30B0><U+30C6><U+30FC><U+30D7><U+78BA><U+8A8D> // Film presence_5305759',
+            p_value: '',
+            df: '',
+            type: 'C',
+            dcr_route_name: 'PBJ_C1-5-D Transducer Route',
+            route_step_name: 30,
+            dcr_op_name: 'PBJ_Sub Dicing',
+            line_number: 20,
+            warning:
+                'contrasts can be applied only to factors with 2 or more levels'
+        },
+        {
+            X_name: '30_Dicing JIG Number_5305759',
+            p_value: '',
+            df: '',
+            type: 'C',
+            dcr_route_name: 'PBJ_C1-5-D Transducer Route',
+            route_step_name: 30,
+            dcr_op_name: 'PBJ_Sub Dicing',
+            line_number: 30,
+            warning:
+                'contrasts can be applied only to factors with 2 or more levels'
+        },
+        {
+            X_name: '40_Dicing Machine Number_5305759',
+            p_value: '',
+            df: '',
+            type: 'C',
+            dcr_route_name: 'PBJ_C1-5-D Transducer Route',
+            route_step_name: 30,
+            dcr_op_name: 'PBJ_Sub Dicing',
+            line_number: 40,
+            warning:
+                'contrasts can be applied only to factors with 2 or more levels'
+        },
+        {
+            X_name:
+                '50_<U+30D0><U+30AD><U+30E5><U+30FC><U+30E0><U+30E1><U+30FC><U+30BF><U+30FC><U+304C><U+7DD1><U+306E><U+30BE><U+30FC><U+30F3><U+306B><U+3042><U+308B><U+3053><U+3068><U+3092><U+78BA><U+8A8D> // Vacuum meter is green zone_5305759',
+            p_value: '',
+            df: '',
+            type: 'C',
+            dcr_route_name: 'PBJ_C1-5-D Transducer Route',
+            route_step_name: 30,
+            dcr_op_name: 'PBJ_Sub Dicing',
+            line_number: 50,
+            warning:
+                'contrasts can be applied only to factors with 2 or more levels'
+        },
+        {
+            X_name:
+                '70_<U+30D0><U+30AD><U+30E5><U+30FC><U+30E0><U+30E1><U+30FC><U+30BF><U+30FC><U+304C><U+7DD1><U+306E><U+30BE><U+30FC><U+30F3><U+306B><U+3042><U+308B><U+3053><U+3068><U+3092><U+78BA><U+8A8D> // Vacuum meter is green zone_5305759',
+            p_value: '',
+            df: '',
+            type: 'C',
+            dcr_route_name: 'PBJ_C1-5-D Transducer Route',
+            route_step_name: 30,
+            dcr_op_name: 'PBJ_Sub Dicing',
+            line_number: 70,
+            warning:
+                'contrasts can be applied only to factors with 2 or more levels'
+        },
+        {
+            X_name:
+                '70_<U+9001><U+308A><U+5E45> // Cut Pitch Main (11.65mm)_5305759',
+            p_value: '',
+            df: 318,
+            type: 'N',
+            dcr_route_name: 'PBJ_C1-5-D Transducer Route',
+            route_step_name: 30,
+            dcr_op_name: 'PBJ_Sub Dicing',
+            line_number: 70,
+            warning: 'OK'
+        },
+        {
+            X_name:
+                '80_Dicing<U+4F5C><U+696D><U+78BA><U+8A8D> // Start dice_5305759',
+            p_value: '',
+            df: '',
+            type: 'C',
+            dcr_route_name: 'PBJ_C1-5-D Transducer Route',
+            route_step_name: 30,
+            dcr_op_name: 'PBJ_Sub Dicing',
+            line_number: 80,
+            warning:
+                'contrasts can be applied only to factors with 2 or more levels'
+        },
+        {
+            X_name:
+                '90_Dicing Machine<U+304B><U+3089>XDCR<U+3092><U+53D6><U+308A><U+5916><U+3057> // Remove the Xdcr from Dicing Machine_5305759',
+            p_value: '',
+            df: '',
+            type: 'C',
+            dcr_route_name: 'PBJ_C1-5-D Transducer Route',
+            route_step_name: 30,
+            dcr_op_name: 'PBJ_Sub Dicing',
+            line_number: 90,
+            warning:
+                'contrasts can be applied only to factors with 2 or more levels'
+        },
+        {
+            X_name:
+                '90_<U+9001><U+308A><U+5E45> // Cut Pitch Main (11.65mm)_5305759',
+            p_value: '',
+            df: 295,
+            type: 'N',
+            dcr_route_name: 'PBJ_C1-5-D Transducer Route',
+            route_step_name: 30,
+            dcr_op_name: 'PBJ_Sub Dicing',
+            line_number: 90,
+            warning: 'OK'
+        },
+        {
+            X_name:
+                '100_Dicing<U+4F5C><U+696D><U+78BA><U+8A8D> // Start dice_5305759',
+            p_value: '',
+            df: '',
+            type: 'C',
+            dcr_route_name: 'PBJ_C1-5-D Transducer Route',
+            route_step_name: 30,
+            dcr_op_name: 'PBJ_Sub Dicing',
+            line_number: 100,
+            warning:
+                'contrasts can be applied only to factors with 2 or more levels'
+        },
+        {
+            X_name:
+                '100_<U+4E0D><U+5177><U+5408><U+6709><U+7121><U+306E><U+78BA><U+8A8D> // Outer Inspection_5305759',
+            p_value: '',
+            df: '',
+            type: 'C',
+            dcr_route_name: 'PBJ_C1-5-D Transducer Route',
+            route_step_name: 30,
+            dcr_op_name: 'PBJ_Sub Dicing',
+            line_number: 100,
+            warning:
+                'contrasts can be applied only to factors with 2 or more levels'
+        },
+        {
+            X_name:
+                '110_Dicing Machine<U+304B><U+3089>XDCR<U+3092><U+53D6><U+308A><U+5916><U+3057> // Remove the Xdcr from Dicing Machine_5305759',
+            p_value: '',
+            df: '',
+            type: 'C',
+            dcr_route_name: 'PBJ_C1-5-D Transducer Route',
+            route_step_name: 30,
+            dcr_op_name: 'PBJ_Sub Dicing',
+            line_number: 110,
+            warning:
+                'contrasts can be applied only to factors with 2 or more levels'
+        },
+        {
+            X_name:
+                '110_<U+6574><U+5408><U+5C64><U+5916><U+5F62><U+4FEE><U+6B63><U+4F5C><U+696D><U+5B8C><U+4E86><U+306E><U+78BA><U+8A8D> // Confirmation of completion of Trimming_5305759',
+            p_value: '',
+            df: '',
+            type: 'C',
+            dcr_route_name: 'PBJ_C1-5-D Transducer Route',
+            route_step_name: 30,
+            dcr_op_name: 'PBJ_Sub Dicing',
+            line_number: 110,
+            warning:
+                'contrasts can be applied only to factors with 2 or more levels'
+        },
+        {
+            X_name:
+                '120_<U+4E0D><U+5177><U+5408><U+6709><U+7121><U+306E><U+78BA><U+8A8D> // Outer Inspection_5305759',
+            p_value: '',
+            df: '',
+            type: 'C',
+            dcr_route_name: 'PBJ_C1-5-D Transducer Route',
+            route_step_name: 30,
+            dcr_op_name: 'PBJ_Sub Dicing',
+            line_number: 120,
+            warning:
+                'contrasts can be applied only to factors with 2 or more levels'
+        },
+        {
+            X_name:
+                '130_<U+6574><U+5408><U+5C64><U+5916><U+5F62><U+4FEE><U+6B63><U+4F5C><U+696D><U+5B8C><U+4E86><U+306E><U+78BA><U+8A8D> // Confirmation of completion of Trimming_5305759',
+            p_value: '',
+            df: '',
+            type: 'C',
+            dcr_route_name: 'PBJ_C1-5-D Transducer Route',
+            route_step_name: 30,
+            dcr_op_name: 'PBJ_Sub Dicing',
+            line_number: 130,
+            warning:
+                'contrasts can be applied only to factors with 2 or more levels'
+        },
+        {
+            X_name:
+                '10_<U+4E0D><U+5177><U+5408><U+6709><U+7121><U+306E><U+78BA><U+8A8D> // Outer Inspection_5305759',
+            p_value: '',
+            df: '',
+            type: 'C',
+            dcr_route_name: 'PBJ_C1-5-D Transducer Route',
+            route_step_name: 40,
+            dcr_op_name: 'PBJ_Lamination',
+            line_number: 10,
+            warning:
+                'contrasts can be applied only to factors with 2 or more levels'
+        },
+        {
+            X_name:
+                '20_<U+539A><U+3055><U+6E2C><U+5B9A><U+5668><U+7BA1><U+7406><U+756A><U+53F7>// measuring instrument management number_5305759',
+            p_value: '',
+            df: '',
+            type: 'C',
+            dcr_route_name: 'PBJ_C1-5-D Transducer Route',
+            route_step_name: 40,
+            dcr_op_name: 'PBJ_Lamination',
+            line_number: 20,
+            warning:
+                'contrasts can be applied only to factors with 2 or more levels'
+        },
+        {
+            X_name:
+                '60_C1-5-D Backing Plate Thickness MAX-MIN \n(<U+2266>0.005mm)_5305759',
+            p_value: '',
+            df: '',
+            type: 'N',
+            dcr_route_name: 'PBJ_C1-5-D Transducer Route',
+            route_step_name: 40,
+            dcr_op_name: 'PBJ_Lamination',
+            line_number: 60,
+            warning:
+                'the response appeared on the right-hand side and was dropped'
+        },
+        {
+            X_name: '70_C1-5-D FPC<U+30E1><U+30FC><U+30AB><U+30FC>_5305759',
+            p_value: '',
+            df: '',
+            type: 'C',
+            dcr_route_name: 'PBJ_C1-5-D Transducer Route',
+            route_step_name: 40,
+            dcr_op_name: 'PBJ_Lamination',
+            line_number: 70,
+            warning:
+                'contrasts can be applied only to factors with 2 or more levels'
+        },
+        {
+            X_name: '100_<U+90E8><U+6750><U+6D17><U+6D44>_5305759',
+            p_value: '',
+            df: '',
+            type: 'C',
+            dcr_route_name: 'PBJ_C1-5-D Transducer Route',
+            route_step_name: 40,
+            dcr_op_name: 'PBJ_Lamination',
+            line_number: 100,
+            warning:
+                'contrasts can be applied only to factors with 2 or more levels'
+        },
+        {
+            X_name:
+                '110_<U+30D7><U+30E9><U+30A4><U+30DE><U+30FC><U+51E6><U+7406>_5305759',
+            p_value: '',
+            df: '',
+            type: 'C',
+            dcr_route_name: 'PBJ_C1-5-D Transducer Route',
+            route_step_name: 40,
+            dcr_op_name: 'PBJ_Lamination',
+            line_number: 110,
+            warning:
+                'contrasts can be applied only to factors with 2 or more levels'
+        },
+        {
+            X_name:
+                '120_<U+5727><U+529B><U+30C1><U+30A7><U+30C3><U+30AF>_5305759',
+            p_value: '',
+            df: '',
+            type: 'C',
+            dcr_route_name: 'PBJ_C1-5-D Transducer Route',
+            route_step_name: 40,
+            dcr_op_name: 'PBJ_Lamination',
+            line_number: 120,
+            warning:
+                'contrasts can be applied only to factors with 2 or more levels'
+        },
+        {
+            X_name: '130_<U+63A5><U+7740><U+5264><U+9078><U+629E>_5305759',
+            p_value: '',
+            df: '',
+            type: 'C',
+            dcr_route_name: 'PBJ_C1-5-D Transducer Route',
+            route_step_name: 40,
+            dcr_op_name: 'PBJ_Lamination',
+            line_number: 130,
+            warning:
+                'contrasts can be applied only to factors with 2 or more levels'
+        },
+        {
+            X_name:
+                '160_<U+30BF><U+30A4><U+30DE><U+30FC>0%<U+3001><U+6E29><U+5EA6>35<U+5EA6><U+4EE5><U+4E0B><U+78BA><U+8A8D>_5305759',
+            p_value: '',
+            df: '',
+            type: 'C',
+            dcr_route_name: 'PBJ_C1-5-D Transducer Route',
+            route_step_name: 40,
+            dcr_op_name: 'PBJ_Lamination',
+            line_number: 160,
+            warning:
+                'contrasts can be applied only to factors with 2 or more levels'
+        },
+        {
+            X_name:
+                '170_Lamination<U+4F5C><U+696D><U+5B8C><U+4E86><U+78BA><U+8A8D> // Lamination JIG Set_5305759',
+            p_value: '',
+            df: '',
+            type: 'C',
+            dcr_route_name: 'PBJ_C1-5-D Transducer Route',
+            route_step_name: 40,
+            dcr_op_name: 'PBJ_Lamination',
+            line_number: 170,
+            warning:
+                'contrasts can be applied only to factors with 2 or more levels'
+        },
+        {
+            X_name:
+                '10_<U+4E0D><U+5177><U+5408><U+6709><U+7121><U+306E><U+78BA><U+8A8D> // Outer Inspection_5305759',
+            p_value: '',
+            df: '',
+            type: 'C',
+            dcr_route_name: 'PBJ_C1-5-D Transducer Route',
+            route_step_name: 50,
+            dcr_op_name: 'PBJ_Trimming',
+            line_number: 10,
+            warning:
+                'contrasts can be applied only to factors with 2 or more levels'
+        },
+        {
+            X_name:
+                '10_<U+4E0D><U+5177><U+5408><U+6709><U+7121><U+306E><U+78BA><U+8A8D> // Outer Inspection_5305759',
+            p_value: '',
+            df: '',
+            type: 'C',
+            dcr_route_name: 'PBJ_C1-5-D Transducer Route',
+            route_step_name: 60,
+            dcr_op_name: 'PBJ_Dicing Set',
+            line_number: 10,
+            warning:
+                'contrasts can be applied only to factors with 2 or more levels'
+        },
+        {
+            X_name:
+                '10_<U+4E0D><U+5177><U+5408><U+6709><U+7121><U+306E><U+78BA><U+8A8D> // Outer Inspection_5305759',
+            p_value: '',
+            df: '',
+            type: 'C',
+            dcr_route_name: 'PBJ_C1-5-D Transducer Route',
+            route_step_name: 70,
+            dcr_op_name: 'PBJ_Dicing',
+            line_number: 10,
+            warning:
+                'contrasts can be applied only to factors with 2 or more levels'
+        },
+        {
+            X_name:
+                '10_<U+4E0D><U+5177><U+5408><U+6709><U+7121><U+306E><U+78BA><U+8A8D> // Outer Inspection_5305759',
+            p_value: '',
+            df: '',
+            type: 'C',
+            dcr_route_name: 'PBJ_C1-5-D Transducer Route',
+            route_step_name: 80,
+            dcr_op_name: 'PBJ_Bending',
+            line_number: 10,
+            warning:
+                'contrasts can be applied only to factors with 2 or more levels'
+        },
+        {
+            X_name:
+                '10_<U+4E0D><U+5177><U+5408><U+6709><U+7121><U+306E><U+78BA><U+8A8D> // Outer Inspection_5305759',
+            p_value: '',
+            df: '',
+            type: 'C',
+            dcr_route_name: 'PBJ_C1-5-D Transducer Route',
+            route_step_name: 90,
+            dcr_op_name: 'PBJ_Capacitance Check',
+            line_number: 10,
+            warning:
+                'contrasts can be applied only to factors with 2 or more levels'
+        },
+        {
+            X_name: 'subject_name',
+            p_value: '',
+            df: '',
+            type: '',
+            dcr_route_name: '',
+            route_step_name: '',
+            dcr_op_name: '',
+            line_number: '',
+            warning:
+                'ANOVA F-tests on an essentially perfect fit are unreliable'
+        }
+    ];
+
     async handleConnection() {
         // Notify connected clients of current users
         this.server.emit('data', 'connected');
@@ -4207,6 +5043,7 @@ export class MessageGateway
     @SubscribeMessage('dcp') ///user/dcpUniqueFilterValues, /szymon/dcpUniqueFilterValues
     onDCP(client, params) {
         console.log(params.key);
+        console.log('id:', client.id);
         const event = 'dcp';
         const data = { key: params.select, data: this.dcpData[params.key] };
         console.log(data);
@@ -4216,6 +5053,7 @@ export class MessageGateway
 
     @SubscribeMessage('dcp-visualization')
     onVisualizationData(client, dcp) {
+        console.log(client);
         const event = 'dcp-visualization';
         let data: Object[];
 
@@ -4226,6 +5064,15 @@ export class MessageGateway
         } else {
             data = this.visualizationData3;
         }
+
+        return of({ event, data }).pipe(delay(1000));
+    }
+
+    @SubscribeMessage('dcp-analysis')
+    onAnalysisData(client, dcp) {
+        console.log(client);
+        const event = 'dcp-analysis';
+        const data = this.analysisData;
 
         return of({ event, data }).pipe(delay(1000));
     }
