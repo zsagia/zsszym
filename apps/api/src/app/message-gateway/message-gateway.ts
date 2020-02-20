@@ -4230,28 +4230,6 @@ export class MessageGateway
             warning: 'OK'
         },
         {
-            X_name: 'subject_time',
-            p_value: 0.00463969,
-            df: 1,
-            type: '',
-            dcr_route_name: '',
-            route_step_name: '',
-            dcr_op_name: '',
-            line_number: '',
-            warning: 'OK'
-        },
-        {
-            X_name: 'subject_id',
-            p_value: 0.022555577,
-            df: 1,
-            type: '',
-            dcr_route_name: '',
-            route_step_name: '',
-            dcr_op_name: '',
-            line_number: '',
-            warning: 'OK'
-        },
-        {
             X_name: '50_Blade Lot Number_5305759',
             p_value: 0.059533404,
             df: 9,
@@ -5013,18 +4991,6 @@ export class MessageGateway
             line_number: 10,
             warning:
                 'contrasts can be applied only to factors with 2 or more levels'
-        },
-        {
-            X_name: 'subject_name',
-            p_value: '',
-            df: '',
-            type: '',
-            dcr_route_name: '',
-            route_step_name: '',
-            dcr_op_name: '',
-            line_number: '',
-            warning:
-                'ANOVA F-tests on an essentially perfect fit are unreliable'
         }
     ];
 
