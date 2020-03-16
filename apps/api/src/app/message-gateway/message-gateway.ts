@@ -427,7 +427,7 @@ export class MessageGateway
                 part_number: '5809423',
                 line_number: 290,
                 input_prompt:
-                    '[Sensor Pixel <U+89E3><U+6790><U+5EA6>]<U+786E><U+8BA4><U+62CD><U+6444><U+7684><U+5F71><U+50CF><U+7684><U+5206><U+8FA8><U+7387><U+5728>6lp/mm <U+4EE5><U+4E0A>',
+                    '[100_Dicing作業確認 // Start dice_5305759',
                 data_type: 'Text'
             },
             {
