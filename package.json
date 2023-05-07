@@ -76,7 +76,7 @@
         "jest": "24.1.0",
         "@types/jest": "24.0.9",
         "ts-jest": "24.0.0",
-        "cypress": "3.6.1",
+        "cypress": "12.11.0",
         "@nrwl/cypress": "8.11.2",
         "@nrwl/node": "8.11.2",
         "@nestjs/schematics": "^6.7.0",
